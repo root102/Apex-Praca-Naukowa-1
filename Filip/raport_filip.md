@@ -32,12 +32,12 @@ Gumy silikonowe utwardzane w temperaturze pokojowej (RTV — *Room Temperature V
 
 | Właściwość | Wartość | Jednostka | Źródło |
 |---|---|---|---|
-| Wytrzymałość na rozciąganie (UTS) | **2–10** (typowo 6) | MPa | AZoM ID:920; MatWeb Silicone RTV |
+| Wytrzymałość na rozciąganie (UTS) | **2–10** (typowo 6) | MPa | [AZoM ID:920](https://www.azom.com/properties.aspx?ArticleID=920); [MatWeb RTV566](https://www.matweb.com/search/datasheettext.aspx?matguid=70466aea960a4c84be3bbc5045c219aa) |
 | Moduł Younga (E) | **1–5** | MPa | Elastomer — 3–4 rządy wielkości poniżej metali |
 | Granica plastyczności (σ_y) | — | — | **Nie dotyczy** — elastomery nie mają granicy plastyczności |
-| Wydłużenie przy zerwaniu | 100–800 (typowo **400**) | % | AZoM ID:920 |
+| Wydłużenie przy zerwaniu | 100–800 (typowo **400**) | % | [AZoM ID:920](https://www.azom.com/properties.aspx?ArticleID=920) |
 | Odporność na pękanie K_IC | — | — | Elastomery opisywane energią rozdarcia, nie K_IC |
-| Gęstość | **1 100–1 250** | kg/m³ | AZoM ID:920; MatWeb |
+| Gęstość | **1 100–1 250** | kg/m³ | [AZoM ID:920](https://www.azom.com/properties.aspx?ArticleID=920); [MatWeb](https://www.matweb.com/search/datasheettext.aspx?matguid=70466aea960a4c84be3bbc5045c219aa) |
 
 > **Charakter krzywej:** silnie nieliniowa, hipersprężysta (model Neo-Hookean / Mooney-Rivlin). Brak granicy plastyczności. Odkształcenie odwracalne do kilkuset procent.
 
@@ -63,9 +63,9 @@ Dramatyczny wzrost modułu Younga w okolicach −75 °C (początek krystalizacji
 
 | Właściwość | Wartość | Jednostka | Źródło |
 |---|---|---|---|
-| Przewodnictwo cieplne | **0,20–0,30** | W/m·K | Barucci et al., *Cryogenics* 38 (1998) |
-| Pojemność cieplna właściwa | **1 300–1 500** | J/kg·K | Wegner et al. (2018) |
-| Zakres temperatur pracy | **−115 do +300** | °C | Standardowe do +200 °C; T_g = −115 °C |
+| Przewodnictwo cieplne | **0,20–0,30** | W/m·K | [Barucci et al., *Cryogenics* 38 (1998)](https://doi.org/10.1016/S0011-2275(97)00146-X) · [Sci-Hub](https://sci-hub.pl/10.1016/S0011-2275(97)00146-X) |
+| Pojemność cieplna właściwa | **1 300–1 500** | J/kg·K | [Wegner et al. (2018)](https://doi.org/10.1016/j.ijadhadh.2018.07.012) · [Sci-Hub](https://sci-hub.pl/10.1016/j.ijadhadh.2018.07.012) |
+| Zakres temperatur pracy | **−115 do +300** | °C | [SpaceMat DB RTV566](https://www.spacematdb.com/spacemat/datasearch.php?name=RTV+566) |
 
 ### 2.7 Wykres D — Przewodnictwo cieplne vs. temperatura
 
@@ -74,10 +74,21 @@ Dramatyczny wzrost modułu Younga w okolicach −75 °C (początek krystalizacji
 Dane z zakresu 1,2–300 K wg Barucci et al. (1998). Maksimum przewodnictwa (~0,29 W/m·K) osiągane jest w okolicach 220 K (−53 °C). Przy bardzo niskich temperaturach (poniżej 10 K) przewodnictwo spada do ~0,002 W/m·K.
 
 ### 2.8 Kluczowe źródła
-- Barucci, M. *et al.* (1998). Thermal conductivity of a RTV silicone elastomer between 1.2 and 300 K. *Cryogenics*, **38**, 227. https://doi.org/10.1016/S0011-2275(97)00146-X
-- Wegner, P. *et al.* (2018). Thermomechanical Behaviour of Aerospace-grade RTV. *Int. J. Adhesion and Adhesives*. https://doi.org/10.1016/j.ijadhadh.2018.07.012
-- AZoM. Overview of Materials for Silicone Rubber. Article ID:920.
-- SpaceMat Database. RTV 566. https://www.spacematdb.com
+
+- Barucci, M. *et al.* (1998). Thermal conductivity of a RTV silicone elastomer between 1.2 and 300 K. *Cryogenics*, **38**, 227.
+  [DOI: 10.1016/S0011-2275(97)00146-X](https://doi.org/10.1016/S0011-2275(97)00146-X) | [Sci-Hub](https://sci-hub.pl/10.1016/S0011-2275(97)00146-X)
+
+- Wegner, P. *et al.* (2018). Mechanical properties and failure behavior of aerospace-grade RTV silicone adhesive. *Int. J. Adhesion and Adhesives*, **86**, 41–49.
+  [DOI: 10.1016/j.ijadhadh.2018.07.012](https://doi.org/10.1016/j.ijadhadh.2018.07.012) | [Sci-Hub](https://sci-hub.pl/10.1016/j.ijadhadh.2018.07.012)
+
+- AZoM. Overview of Materials for Silicone Rubber.
+  [https://www.azom.com/properties.aspx?ArticleID=920](https://www.azom.com/properties.aspx?ArticleID=920)
+
+- MatWeb. Momentive RTV 566 Silicone Elastomer.
+  [https://www.matweb.com/search/datasheettext.aspx?matguid=70466aea960a4c84be3bbc5045c219aa](https://www.matweb.com/search/datasheettext.aspx?matguid=70466aea960a4c84be3bbc5045c219aa)
+
+- SpaceMat Database. RTV 566 — spacecraft materials database.
+  [https://www.spacematdb.com/spacemat/datasearch.php?name=RTV+566](https://www.spacematdb.com/spacemat/datasearch.php?name=RTV+566)
 
 ---
 
@@ -95,12 +106,12 @@ Matryce polisiloksanowe to żywice na bazie wiązań Si–O stosowane w kompozyt
 
 | Właściwość | Wartość | Jednostka | Źródło |
 |---|---|---|---|
-| Wytrzymałość na rozciąganie (UTS) | **182 ± 9,6** | MPa | McDermott et al. (2022) |
-| Moduł Younga (E) | **45 500** | MPa (45,5 GPa) | Hou et al., Techneglas |
+| Wytrzymałość na rozciąganie (UTS) | **182 ± 9,6** | MPa | [McDermott et al. (2022)](https://doi.org/10.1177/00219983211038622) · [Sci-Hub](https://sci-hub.pl/10.1177/00219983211038622) |
+| Moduł Younga (E) | **45 500** | MPa (45,5 GPa) | [Hou et al., Techneglas (PDF)](https://www.techneglas.com/wp-content/uploads/2021/12/Yanan-Hou-Performance-of-a-Carbon-FiberPolysiloxane-Composite-Thermal-Ablation-Flammability-and-Mechanical-Characterization.pdf) |
 | Granica plastyczności | — | — | Nie dotyczy — pęknięcie kruche |
-| Wydłużenie przy zerwaniu | **0,97** | % | Hou et al., Techneglas |
-| Odporność na pękanie K_IC | **2,52** | MPa·m⁰˒⁵ | PMC11945185 (2025) |
-| Gęstość | **1 320** | kg/m³ | McDermott et al. (2022) |
+| Wydłużenie przy zerwaniu | **0,97** | % | [Hou et al., Techneglas (PDF)](https://www.techneglas.com/wp-content/uploads/2021/12/Yanan-Hou-Performance-of-a-Carbon-FiberPolysiloxane-Composite-Thermal-Ablation-Flammability-and-Mechanical-Characterization.pdf) |
+| Odporność na pękanie K_IC | **2,52** | MPa·m⁰˒⁵ | [PMC11945185 (2025)](https://pmc.ncbi.nlm.nih.gov/articles/PMC11945185/) — otwarty dostęp |
+| Gęstość | **1 320** | kg/m³ | [McDermott et al. (2022)](https://doi.org/10.1177/00219983211038622) · [Sci-Hub](https://sci-hub.pl/10.1177/00219983211038622) |
 
 ### 3.3 Wykres A — Krzywa naprężenie–odkształcenie
 
@@ -124,13 +135,13 @@ Moduł maleje z temperaturą. Dane dla układu CF/UHTR wg Hou et al. / Technegla
 
 | Właściwość | Wartość | Jednostka | Źródło |
 |---|---|---|---|
-| Przewodnictwo cieplne (2,5D, RT) | **0,21** | W/m·K | McDermott et al. (2022) |
-| Przewodnictwo cieplne (S/UHTR, 149–260 °C) | 0,63–0,65 | W/m·K | Tate et al., Techneglas |
+| Przewodnictwo cieplne (2,5D, RT) | **0,21** | W/m·K | [McDermott et al. (2022)](https://doi.org/10.1177/00219983211038622) · [Sci-Hub](https://sci-hub.pl/10.1177/00219983211038622) |
+| Przewodnictwo cieplne (S/UHTR, 149–260 °C) | 0,63–0,65 | W/m·K | [Tate et al., Techneglas (PDF)](https://www.techneglas.com/wp-content/uploads/2018/07/Experimental-Characterization-of-Material-Properties-of-Novel-SilicaPolysiloxane-Ablative.pdf) |
 | Pojemność cieplna właściwa | ~1 300–1 500 | J/kg·K | Szacunek na podst. danych krzemowych |
 | Temp. pracy (faza char) | do **+1 400** | °C | Piroliza 300–550 °C; char > 1 200 °C |
-| Szybkość ubytku masy (F1) | **0,021** | g/s | Tate et al., Techneglas |
-| Prędkość recesji liniowej (F1) | **0,031** | mm/s | Tate et al., Techneglas |
-| Uzysk węgla — żywica UHTR (TGA, 1000 °C) | **86,5** | % | Hou et al., Techneglas |
+| Szybkość ubytku masy (F1) | **0,021** | g/s | [Tate et al., Techneglas (PDF)](https://www.techneglas.com/wp-content/uploads/2018/07/Experimental-Characterization-of-Material-Properties-of-Novel-SilicaPolysiloxane-Ablative.pdf) |
+| Prędkość recesji liniowej (F1) | **0,031** | mm/s | [Tate et al., Techneglas (PDF)](https://www.techneglas.com/wp-content/uploads/2018/07/Experimental-Characterization-of-Material-Properties-of-Novel-SilicaPolysiloxane-Ablative.pdf) |
+| Uzysk węgla — żywica UHTR (TGA, 1000 °C) | **86,5** | % | [Hou et al., Techneglas (PDF)](https://www.techneglas.com/wp-content/uploads/2021/12/Yanan-Hou-Performance-of-a-Carbon-FiberPolysiloxane-Composite-Thermal-Ablation-Flammability-and-Mechanical-Characterization.pdf) |
 
 ### 3.7 Wykres D — Przewodnictwo cieplne vs. temperatura
 
@@ -139,10 +150,18 @@ Moduł maleje z temperaturą. Dane dla układu CF/UHTR wg Hou et al. / Technegla
 Dane dla formulacji F1 wg Tate et al. (Techneglas). Przewodnictwo jest relatywnie stabilne w zakresie 50–260 °C (~0,63–0,68 W/m·K), a powyżej strefy pirolizy (> 550 °C) rośnie ze względu na promieniowe przejście ciepła przez porowatą warstwę ceramiczną.
 
 ### 3.8 Kluczowe źródła
-- McDermott, R.M., Tate, J.S., Koo, J.H. (2022). *J. Composite Materials*, **56**, 685. https://doi.org/10.1177/00219983211038622
-- Hou, Y. *et al.* Performance of a Carbon Fibre/Polysiloxane Composite. Techneglas. https://www.techneglas.com
-- Tate, J.S. *et al.* Experimental Characterisation of Novel Silica/Polysiloxane Ablative. Techneglas.
-- PMC11945185 (2025). Performance Optimisation of SiO₂f/SiO₂ Composites. https://pmc.ncbi.nlm.nih.gov/articles/PMC11945185/
+
+- McDermott, R.M., Tate, J.S. & Koo, J.H. (2022). Exploration of a new affordable TPS utilizing a 2.5D woven silica/polysiloxane composite. *Journal of Composite Materials*, **56**(5), 685–699.
+  [DOI: 10.1177/00219983211038622](https://doi.org/10.1177/00219983211038622) | [Sci-Hub](https://sci-hub.pl/10.1177/00219983211038622)
+
+- Hou, Y. *et al.* Performance of a Carbon Fiber/Polysiloxane Composite: Thermal Ablation, Flammability and Mechanical Characterization. Techneglas Technical Report.
+  [PDF (otwarty dostęp)](https://www.techneglas.com/wp-content/uploads/2021/12/Yanan-Hou-Performance-of-a-Carbon-FiberPolysiloxane-Composite-Thermal-Ablation-Flammability-and-Mechanical-Characterization.pdf)
+
+- Tate, J.S. *et al.* Experimental Characterization of Material Properties of Novel Silica/Polysiloxane Ablative. Techneglas Technical Report.
+  [PDF (otwarty dostęp)](https://www.techneglas.com/wp-content/uploads/2018/07/Experimental-Characterization-of-Material-Properties-of-Novel-SilicaPolysiloxane-Ablative.pdf)
+
+- Huang, J. *et al.* (2025). Performance Optimization of SiO₂f/SiO₂ Composites Derived from Polysiloxane Ceramic Precursors. *PMC* (otwarty dostęp).
+  [https://pmc.ncbi.nlm.nih.gov/articles/PMC11945185/](https://pmc.ncbi.nlm.nih.gov/articles/PMC11945185/)
 
 ---
 
@@ -161,12 +180,12 @@ Kevlar® (DuPont) to para-aramidowe włókno syntetyczne. Dwie główne odmiany 
 
 | Właściwość | Kevlar-29 | Kevlar-49 | Jednostka | Źródło |
 |---|---|---|---|---|
-| Wytrzymałość na rozciąganie (UTS) | **3 600** | **3 000–3 800** | MPa | MatWeb; DuPont Tech Guide |
-| Moduł Younga (E) | **70–70,5** | **112–131** | GPa | MatWeb; DuPont datasheet |
+| Wytrzymałość na rozciąganie (UTS) | **3 600** | **3 000–3 800** | MPa | [MatWeb K-29](https://www.matweb.com/search/datasheet.aspx?MatGUID=7323d8a43cce4fe795d772b67207eac8); [MatWeb K-49](https://www.matweb.com/search/datasheet.aspx?MatGUID=77b5205f0dcc43bb8cbe6fee7d36cbb5) |
+| Moduł Younga (E) | **70–70,5** | **112–131** | GPa | [DuPont Kevlar Tech Guide (PDF)](https://www.dupont.com/content/dam/dupont/amer/us/en/safety/public/documents/en/45-D00846-en.pdf) |
 | Granica plastyczności | — | — | — | **Nie dotyczy** — kruche włókno |
-| Wydłużenie przy zerwaniu | **3,6** | **2,4** | % | DuPont; SubsTech |
+| Wydłużenie przy zerwaniu | **3,6** | **2,4** | % | [MatWeb K-29](https://www.matweb.com/search/datasheet.aspx?MatGUID=7323d8a43cce4fe795d772b67207eac8); [PMC12349578](https://pmc.ncbi.nlm.nih.gov/articles/PMC12349578/) |
 | Odporność na pękanie K_IC | — | — | — | Nie scharakteryzowana klasycznie |
-| Gęstość | **1 440** | **1 440** | kg/m³ | MatWeb; DuPont |
+| Gęstość | **1 440** | **1 440** | kg/m³ | [MatWeb K-29](https://www.matweb.com/search/datasheet.aspx?MatGUID=7323d8a43cce4fe795d772b67207eac8) |
 
 ### 4.3 Wykres A — Krzywa naprężenie–odkształcenie
 
@@ -190,11 +209,11 @@ Obydwa gatunki wykazują umiarkowane zmiany modułu w zakresie −196 °C do +30
 
 | Właściwość | Wartość | Jednostka | Źródło |
 |---|---|---|---|
-| Przewodnictwo cieplne — poprzeczne (RT) | **0,04** | W/m·K | Ventura & Martelli, *Cryogenics* 2009 |
-| Przewodnictwo cieplne — osiowe (RT) | **3,5–4,0** | W/m·K | Silna anizotropia |
-| Pojemność cieplna właściwa | **1 420** | J/kg·K | material-properties.org/kevlar |
-| Maks. temperatura pracy | **~430** | °C | Początek degradacji; DuPont |
-| Min. temperatura pracy | **−196** | °C | Zachowuje właściwości przy LN₂ |
+| Przewodnictwo cieplne — poprzeczne (RT) | **0,04** | W/m·K | [Ventura & Martelli, *Cryogenics* 49 (2009) 509](https://doi.org/10.1016/j.cryogenics.2009.03.006) · [Sci-Hub](https://sci-hub.pl/10.1016/j.cryogenics.2009.03.006) |
+| Przewodnictwo cieplne — osiowe (RT) | **3,5–4,0** | W/m·K | Silna anizotropia — [NIST Cryo DB](https://trc.nist.gov/cryogenics/materials/Kevlar49/kevlarfiber.htm) |
+| Pojemność cieplna właściwa | **1 420** | J/kg·K | [DuPont Kevlar Tech Guide (PDF)](https://www.dupont.com/content/dam/dupont/amer/us/en/safety/public/documents/en/45-D00846-en.pdf) |
+| Maks. temperatura pracy | **~430** | °C | [DuPont Kevlar Tech Guide (PDF)](https://www.dupont.com/content/dam/dupont/amer/us/en/safety/public/documents/en/45-D00846-en.pdf) |
+| Min. temperatura pracy | **−196** | °C | [NIST Cryogenics DB — Kevlar 49](https://trc.nist.gov/cryogenics/materials/Kevlar49/kevlarfiber.htm) |
 
 ### 4.7 Wykres D — Przewodnictwo cieplne vs. temperatura
 
@@ -203,11 +222,27 @@ Obydwa gatunki wykazują umiarkowane zmiany modułu w zakresie −196 °C do +30
 Dane w kierunku poprzecznym (prostopadłym do włókna) wg Ventura & Martelli (2009) dla zakresu 7–290 K. Przewodnictwo rośnie od ~0,01 W/m·K przy 7 K do ~0,04 W/m·K przy RT. Materiał jest silnie anizotropowy — w kierunku osiowym przewodnictwo wynosi ~3,5–4,0 W/m·K (linia przerywana).
 
 ### 4.8 Kluczowe źródła
-- MatWeb. DuPont™ Kevlar® 29. https://www.matweb.com/search/datasheet.aspx?MatGUID=7323d8a43cce4fe795d772b67207eac8
-- MatWeb. DuPont™ Kevlar® 49. https://www.matweb.com/search/datasheet.aspx?MatGUID=77b5205f0dcc43bb8cbe6fee7d36cbb5
-- Ventura, G. & Martelli, V. (2009). Thermal conductivity of Kevlar 49 between 7 and 290 K. *Cryogenics*, **49**, 509. https://doi.org/10.1016/j.cryogenics.2009.03.006
-- PMC12349578 (2025). Strain-Rate-Dependent Tensile Behaviour of Kevlar® 29. *Polymers*. https://pmc.ncbi.nlm.nih.gov/articles/PMC12349578/
-- NIST Cryogenic Materials Database — Kevlar 49 Fiber. https://trc.nist.gov/cryogenics/materials/Kevlar49/kevlarfiber.htm
+
+- MatWeb. DuPont™ Kevlar® 29 — karta materiałowa.
+  [https://www.matweb.com/search/datasheet.aspx?MatGUID=7323d8a43cce4fe795d772b67207eac8](https://www.matweb.com/search/datasheet.aspx?MatGUID=7323d8a43cce4fe795d772b67207eac8)
+
+- MatWeb. DuPont™ Kevlar® 49 — karta materiałowa.
+  [https://www.matweb.com/search/datasheet.aspx?MatGUID=77b5205f0dcc43bb8cbe6fee7d36cbb5](https://www.matweb.com/search/datasheet.aspx?MatGUID=77b5205f0dcc43bb8cbe6fee7d36cbb5)
+
+- DuPont. *Kevlar® Brand Fiber — Technical Guide*. DuPont Engineering Polymers.
+  [PDF (otwarty dostęp)](https://www.dupont.com/content/dam/dupont/amer/us/en/safety/public/documents/en/45-D00846-en.pdf)
+
+- Ventura, G. & Martelli, V. (2009). Thermal conductivity of Kevlar 49 between 7 and 290 K. *Cryogenics*, **49**(9), 509–511.
+  [DOI: 10.1016/j.cryogenics.2009.03.006](https://doi.org/10.1016/j.cryogenics.2009.03.006) | [Sci-Hub](https://sci-hub.pl/10.1016/j.cryogenics.2009.03.006)
+
+- Ventura, G. & Martelli, V. (2009). Very low temperature thermal conductivity of Kevlar 49. *Cryogenics*, **49**(7), 376–382.
+  [DOI: 10.1016/j.cryogenics.2009.02.007](https://doi.org/10.1016/j.cryogenics.2009.02.007) | [Sci-Hub](https://sci-hub.pl/10.1016/j.cryogenics.2009.02.007)
+
+- Kowalczyk, P. *et al.* (2025). Strain-Rate-Dependent Tensile Properties and Constitutive Modelling of Kevlar® 29 Woven Fabric. *Polymers*, **17**(6). *PMC* (otwarty dostęp).
+  [https://pmc.ncbi.nlm.nih.gov/articles/PMC12349578/](https://pmc.ncbi.nlm.nih.gov/articles/PMC12349578/)
+
+- NIST Cryogenic Technologies Group. Kevlar 49 Fiber — Thermal Properties Database.
+  [https://trc.nist.gov/cryogenics/materials/Kevlar49/kevlarfiber.htm](https://trc.nist.gov/cryogenics/materials/Kevlar49/kevlarfiber.htm)
 
 ---
 
@@ -221,12 +256,12 @@ Mylar® (DuPont Teijin Films) to folia z dwuosiowo orientowanego politereftalanu
 
 | Właściwość | Wartość (MD) | Wartość (TD) | Jednostka | Źródło |
 |---|---|---|---|---|
-| Wytrzymałość na rozciąganie (UTS) | **190** | **210** | MPa | DuPont Teijin Mylar A (ASTM D882) |
-| Moduł Younga (E) | **3 800** | **4 100** | MPa | DuPont Teijin Mylar A |
-| Granica plastyczności (σ_y) | ~55–80 (bulk PET) | | MPa | AZoM ID:2047 |
-| Wydłużenie przy zerwaniu | **115–140** | **120–160** | % | DuPont Teijin Mylar A |
-| Odporność na pękanie K_IC | ~2–5 (szac.) | | MPa·m⁰˒⁵ | Szacunek na podst. bulk PET |
-| Gęstość | **1 390–1 400** | | kg/m³ | DuPont Teijin; FSRI Materials DB |
+| Wytrzymałość na rozciąganie (UTS) | **190** | **210** | MPa | [DuPont Teijin Mylar A (PDF)](https://usa.dupontteijinfilms.com/wp-content/uploads/2017/01/Mylar_Physical_Properties.pdf) |
+| Moduł Younga (E) | **3 800** | **4 100** | MPa | [DuPont Teijin Mylar A (PDF)](https://usa.dupontteijinfilms.com/wp-content/uploads/2017/01/Mylar_Physical_Properties.pdf) |
+| Granica plastyczności (σ_y) | ~55–80 (bulk PET) | | MPa | [AZoM ID:2047](https://www.azom.com/article.aspx?ArticleID=2047) |
+| Wydłużenie przy zerwaniu | **115–140** | **120–160** | % | [DuPont Teijin Mylar A (PDF)](https://usa.dupontteijinfilms.com/wp-content/uploads/2017/01/Mylar_Physical_Properties.pdf) |
+| Odporność na pękanie K_IC | ~2–5 (szac.) | | MPa·m⁰˒⁵ | Szacunek na podst. bulk PET; [AZoM ID:2047](https://www.azom.com/article.aspx?ArticleID=2047) |
+| Gęstość | **1 390–1 400** | | kg/m³ | [DuPont Teijin (PDF)](https://usa.dupontteijinfilms.com/wp-content/uploads/2017/01/Mylar_Physical_Properties.pdf); [FSRI](https://materials.fsri.org/materialdetail/polyethylene-terephthalate-pet) |
 
 > MD = kierunek maszynowy, TD = kierunek poprzeczny
 
@@ -252,12 +287,12 @@ Dramatyczny spadek modułu przy przejściu przez T_g (~80 °C) — z ~4 GPa do p
 
 | Właściwość | Wartość | Jednostka | Źródło |
 |---|---|---|---|
-| Przewodnictwo cieplne | **0,14–0,16** | W/m·K | Thermtest; Professional Plastics |
-| Pojemność cieplna właściwa | **1 200–1 350** | J/kg·K | FSRI Materials DB; AZoM ID:2047 |
-| Temperatura zeszklenia (T_g) | **78–85** | °C | AZoM; NETZSCH |
-| Temperatura topnienia | **254–260** | °C | AZoM; NETZSCH |
-| Maks. temperatura ciągłej pracy | **+150** | °C | DuPont Teijin; UL 746B |
-| Min. temperatura pracy | **−70** | °C | DuPont Teijin; raport OSTI |
+| Przewodnictwo cieplne | **0,14–0,16** | W/m·K | [Thermtest — Mylar](https://thermtest.com/application/thermal-conductivity-of-mylar-film) |
+| Pojemność cieplna właściwa | **1 200–1 350** | J/kg·K | [FSRI Materials DB](https://materials.fsri.org/materialdetail/polyethylene-terephthalate-pet); [AZoM ID:2047](https://www.azom.com/article.aspx?ArticleID=2047) |
+| Temperatura zeszklenia (T_g) | **78–85** | °C | [AZoM ID:2047](https://www.azom.com/article.aspx?ArticleID=2047) |
+| Temperatura topnienia | **254–260** | °C | [DuPont Teijin (PDF)](https://usa.dupontteijinfilms.com/wp-content/uploads/2017/01/Mylar_Physical_Properties.pdf) |
+| Maks. temperatura ciągłej pracy | **+150** | °C | [DuPont Teijin (PDF)](https://usa.dupontteijinfilms.com/wp-content/uploads/2017/01/Mylar_Physical_Properties.pdf) |
+| Min. temperatura pracy | **−70** | °C | [OSTI — aluminized Mylar thermal tests](https://www.osti.gov/biblio/5787464) |
 
 ### 5.7 Wykres D — Przewodnictwo cieplne vs. temperatura
 
@@ -266,11 +301,24 @@ Dramatyczny spadek modułu przy przejściu przez T_g (~80 °C) — z ~4 GPa do p
 Przewodnictwo cieplne Mylaru jest stosunkowo stabilne i niskie w całym zakresie pracy (0,12–0,18 W/m·K). Nieznacznie rośnie z temperaturą. Zaznaczono T_g (80 °C) i maks. temperaturę pracy (150 °C). Dane: Thermtest; Professional Plastics.
 
 ### 5.8 Kluczowe źródła
-- DuPont Teijin Films. *Mylar® A Physical & Thermal Properties* datasheet. https://usa.dupontteijinfilms.com
-- MatWeb. DuPont Teijin Films Mylar® A, 500 Gauge. https://www.matweb.com
-- AZoM. Properties of PET Polyester. Article ID:2047. https://www.azom.com/article.aspx?ArticleID=2047
-- FSRI Materials Database. Polyethylene terephthalate (PET). https://materials.fsri.org
-- Thermtest. Thermal conductivity of Mylar film. https://thermtest.com
+
+- DuPont Teijin Films. *Mylar® A — Physical & Thermal Properties* — oficjalna karta katalogowa.
+  [PDF (otwarty dostęp)](https://usa.dupontteijinfilms.com/wp-content/uploads/2017/01/Mylar_Physical_Properties.pdf)
+
+- MatWeb. DuPont Teijin Films Mylar® A, 500 Gauge — karta materiałowa.
+  [https://www.matweb.com/search/datasheet_print.aspx?matguid=981d85aa72b0419bb4b26a3c06cb284d](https://www.matweb.com/search/datasheet_print.aspx?matguid=981d85aa72b0419bb4b26a3c06cb284d)
+
+- AZoM. Properties of PET / Polyester — Article ID:2047.
+  [https://www.azom.com/article.aspx?ArticleID=2047](https://www.azom.com/article.aspx?ArticleID=2047)
+
+- FSRI Materials Database. Polyethylene terephthalate (PET).
+  [https://materials.fsri.org/materialdetail/polyethylene-terephthalate-pet](https://materials.fsri.org/materialdetail/polyethylene-terephthalate-pet)
+
+- Thermtest. Thermal conductivity of Mylar film — application note.
+  [https://thermtest.com/application/thermal-conductivity-of-mylar-film](https://thermtest.com/application/thermal-conductivity-of-mylar-film)
+
+- OSTI.GOV. Thermal testing of aluminized Mylar for space applications.
+  [https://www.osti.gov/biblio/5787464](https://www.osti.gov/biblio/5787464)
 
 ---
 
