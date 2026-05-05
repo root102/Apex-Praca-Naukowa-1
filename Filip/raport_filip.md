@@ -110,7 +110,7 @@ Matryce polisiloksanowe to żywice na bazie wiązań Si–O stosowane w kompozyt
 | Moduł Younga (E) | **45 500** | MPa (45,5 GPa) | [Hou et al., Techneglas (PDF)](https://www.techneglas.com/wp-content/uploads/2021/12/Yanan-Hou-Performance-of-a-Carbon-FiberPolysiloxane-Composite-Thermal-Ablation-Flammability-and-Mechanical-Characterization.pdf) |
 | Granica plastyczności | — | — | Nie dotyczy — pęknięcie kruche |
 | Wydłużenie przy zerwaniu | **0,97** | % | [Hou et al., Techneglas (PDF)](https://www.techneglas.com/wp-content/uploads/2021/12/Yanan-Hou-Performance-of-a-Carbon-FiberPolysiloxane-Composite-Thermal-Ablation-Flammability-and-Mechanical-Characterization.pdf) |
-| Odporność na pękanie K_IC | **2,52** | MPa·m⁰˒⁵ | [PMC11945185 (2025)](https://pmc.ncbi.nlm.nih.gov/articles/PMC11945185/) — otwarty dostęp |
+| Odporność na pękanie K_IC | **2,52** | MPa·m^0.5 | [PMC11945185 (2025)](https://pmc.ncbi.nlm.nih.gov/articles/PMC11945185/) — otwarty dostęp |
 | Gęstość | **1 320** | kg/m³ | [McDermott et al. (2022)](https://doi.org/10.1177/00219983211038622) · [Sci-Hub](https://sci-hub.pl/10.1177/00219983211038622) |
 
 ### 3.3 Wykres A — Krzywa naprężenie–odkształcenie
@@ -260,7 +260,7 @@ Mylar® (DuPont Teijin Films) to folia z dwuosiowo orientowanego politereftalanu
 | Moduł Younga (E) | **3 800** | **4 100** | MPa | [DuPont Teijin Mylar A (PDF)](https://usa.dupontteijinfilms.com/wp-content/uploads/2017/01/Mylar_Physical_Properties.pdf) |
 | Granica plastyczności (σ_y) | ~55–80 (bulk PET) | | MPa | [AZoM ID:2047](https://www.azom.com/article.aspx?ArticleID=2047) |
 | Wydłużenie przy zerwaniu | **115–140** | **120–160** | % | [DuPont Teijin Mylar A (PDF)](https://usa.dupontteijinfilms.com/wp-content/uploads/2017/01/Mylar_Physical_Properties.pdf) |
-| Odporność na pękanie K_IC | ~2–5 (szac.) | | MPa·m⁰˒⁵ | Szacunek na podst. bulk PET; [AZoM ID:2047](https://www.azom.com/article.aspx?ArticleID=2047) |
+| Odporność na pękanie K_IC | ~2–5 (szac.) | | MPa·m^0.5 | Szacunek na podst. bulk PET; [AZoM ID:2047](https://www.azom.com/article.aspx?ArticleID=2047) |
 | Gęstość | **1 390–1 400** | | kg/m³ | [DuPont Teijin (PDF)](https://usa.dupontteijinfilms.com/wp-content/uploads/2017/01/Mylar_Physical_Properties.pdf); [FSRI](https://materials.fsri.org/materialdetail/polyethylene-terephthalate-pet) |
 
 > MD = kierunek maszynowy, TD = kierunek poprzeczny
@@ -333,7 +333,7 @@ Przewodnictwo cieplne Mylaru jest stosunkowo stabilne i niskie w całym zakresie
 | **Przewodnictwo cieplne [W/m·K]** | 0,20–0,30 | 0,21 (2,5D) | 0,04 (poprzeczne) | 0,04 (poprzeczne) | 0,14–0,16 |
 | **Pojemność cieplna [J/kg·K]** | 1 300–1 500 | ~1 300–1 500 | 1 420 | 1 420 | 1 200–1 350 |
 | **Zakres temp. pracy [°C]** | −115 do +300 | do +1 400 (char) | −196 do +430 | −196 do +430 | −70 do +150 |
-| **Odporność na pękanie [MPa·m⁰˒⁵]** | Brak (energia rozdarcia) | **2,52** | Brak | Brak | ~2–5 (szac.) |
+| **Odporność na pękanie [MPa·m^0.5]** | Brak (energia rozdarcia) | **2,52** | Brak | Brak | ~2–5 (szac.) |
 | **Wydłużenie [%]** | 100–800 | 0,97 | 3,6 | 2,4 | 115–160 |
 | **Charakter zniszczenia** | Elastomeryczny | Kruchy | Kruchy | Kruchy | Pół-ciągliwy |
 | **Szybkość ubytku masy** | Brak | **0,021 g/s** | Brak | Brak | Brak |
