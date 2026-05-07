@@ -55,21 +55,21 @@ Kapton HN (poli(4,4'-oksydifenylen)-piromellitimid) to standardowy film kosmiczn
 
 ### Wykresy
 
-![A — krzywa naprężenie–odkształcenie M1](plots/m1_A_stress_strain.png)
+![A — Stress-Strain Curve M1](plots/m1_A_stress_strain.png)
 
-*Model semi-ciągliwy: liniowy do granicy plastyczności (69 MPa), następnie utwardzanie potęgowe do zerwania przy 231 MPa / 72%.*
+*Semi-ductile model: linear to yield point (69 MPa), then power-law hardening to fracture at 231 MPa / 72%.*
 
-![B — UTS vs. temperatura M1](plots/m1_B_uts_vs_temp.png)
+![B — Tensile Strength vs. T M1](plots/m1_B_uts_vs_temp.png)
 
-*UTS spada z 270 MPa (−100 °C) do 40 MPa (400 °C); wzrasta przy bardzo niskich T (ciecz. azot). Dane wg Google Doc — dane projektu.*
+*UTS drops from 270 MPa (−100 °C) to 40 MPa (400 °C); increases at very low T (liquid N₂). Data: project dataset.*
 
-![C — moduł Younga vs. temperatura M1](plots/m1_C_modulus_vs_temp.png)
+![C — Young's Modulus vs. T M1](plots/m1_C_modulus_vs_temp.png)
 
-*E = 2,5 GPa w RT; monotonicznie spada do ~0,5 GPa przy 400 °C. Źródło: DuPont Kapton HN datasheet.*
+*E = 2.5 GPa at RT; monotonically decreases to ~0.5 GPa at 400 °C. Source: DuPont Kapton HN datasheet.*
 
-![D — przewodnictwo cieplne vs. temperatura M1](plots/m1_D_thermal_cond_vs_temp.png)
+![D — Thermal Conductivity vs. T M1](plots/m1_D_thermal_cond_vs_temp.png)
 
-*k rośnie nieznacznie z T (0,09→0,19 W/m·K). Źródło: AZoM ID:921, DuPont datasheet.*
+*k increases slightly with T (0.09→0.19 W/m·K). Source: AZoM ID:921, DuPont datasheet.*
 
 ---
 
@@ -100,13 +100,13 @@ Poliimid modyfikowany nanocząstkami POSS (polyhedral oligomeric silsesquioxane)
 
 ### Wykresy
 
-![A — krzywa naprężenie–odkształcenie M2](plots/m2_A_stress_strain.png)
+![A — Stress-Strain Curve M2](plots/m2_A_stress_strain.png)
 
-![B — UTS vs. temperatura M2](plots/m2_B_uts_vs_temp.png)
+![B — Tensile Strength vs. T M2](plots/m2_B_uts_vs_temp.png)
 
-![C — moduł Younga vs. temperatura M2](plots/m2_C_modulus_vs_temp.png)
+![C — Young's Modulus vs. T M2](plots/m2_C_modulus_vs_temp.png)
 
-![D — przewodnictwo cieplne vs. temperatura M2](plots/m2_D_thermal_cond_vs_temp.png)
+![D — Thermal Conductivity vs. T M2](plots/m2_D_thermal_cond_vs_temp.png)
 
 ---
 
@@ -138,15 +138,15 @@ Poliimid modyfikowany nanocząstkami POSS (polyhedral oligomeric silsesquioxane)
 
 ### Wykresy
 
-![A — krzywa naprężenie–odkształcenie M3](plots/m3_A_stress_strain.png)
+![A — Stress-Strain Curve M3](plots/m3_A_stress_strain.png)
 
-*Kruchy termozestaw: liniowy przebieg aż do pęknięcia przy 45 MPa / 1%. Źródło: AZoM ID:475.*
+*Brittle thermoset: linear behavior up to fracture at 45 MPa / 1%. Source: AZoM ID:475.*
 
-![B — UTS vs. temperatura M3](plots/m3_B_uts_vs_temp.png)
+![B — Tensile Strength vs. T M3](plots/m3_B_uts_vs_temp.png)
 
-![C — moduł Younga vs. temperatura M3](plots/m3_C_modulus_vs_temp.png)
+![C — Young's Modulus vs. T M3](plots/m3_C_modulus_vs_temp.png)
 
-![D — przewodnictwo cieplne vs. temperatura M3](plots/m3_D_thermal_cond_vs_temp.png)
+![D — Thermal Conductivity vs. T M3](plots/m3_D_thermal_cond_vs_temp.png)
 
 ---
 
@@ -178,15 +178,15 @@ Poliimid modyfikowany nanocząstkami POSS (polyhedral oligomeric silsesquioxane)
 
 ### Wykresy
 
-![A — krzywa naprężenie–odkształcenie M4](plots/m4_A_stress_strain.png)
+![A — Stress-Strain Curve M4](plots/m4_A_stress_strain.png)
 
-![B — UTS vs. temperatura M4](plots/m4_B_uts_vs_temp.png)
+![B — Tensile Strength vs. T M4](plots/m4_B_uts_vs_temp.png)
 
-*Wyjątkowo dobre zachowanie UTS w wysokich T (58 MPa przy 300 °C) — lepsze niż Kapton. Źródło: Hergenrother et al. 2005.*
+*Exceptionally good UTS retention at high T (58 MPa at 300 °C) — superior to Kapton. Source: Hergenrother et al. 2005.*
 
-![C — moduł Younga vs. temperatura M4](plots/m4_C_modulus_vs_temp.png)
+![C — Young's Modulus vs. T M4](plots/m4_C_modulus_vs_temp.png)
 
-![D — przewodnictwo cieplne vs. temperatura M4](plots/m4_D_thermal_cond_vs_temp.png)
+![D — Thermal Conductivity vs. T M4](plots/m4_D_thermal_cond_vs_temp.png)
 
 ---
 
@@ -217,17 +217,17 @@ Elastomery silikonowe (RTV — Room Temperature Vulcanizing, np. RTV566 Momentiv
 
 ### Wykresy
 
-![A — krzywa naprężenie–odkształcenie M5](plots/m5_A_stress_strain.png)
+![A — Stress-Strain Curve M5](plots/m5_A_stress_strain.png)
 
-*Model Neo-Hookean (G ≈ 0,85 MPa): nieliniowy hipersprężysty, brak granicy plastyczności, zerwanie ~400%.*
+*Neo-Hookean model (G ≈ 0.85 MPa): non-linear hyperelastic, no yield point, fracture at ~400%.*
 
-![B — UTS vs. temperatura M5](plots/m5_B_uts_vs_temp.png)
+![B — Tensile Strength vs. T M5](plots/m5_B_uts_vs_temp.png)
 
-![C — moduł Younga vs. temperatura M5](plots/m5_C_modulus_vs_temp.png)
+![C — Young's Modulus vs. T M5](plots/m5_C_modulus_vs_temp.png)
 
-*Skala logarytmiczna — E zmienia się o 3 rzędy wielkości (2000→0,9 MPa). Dane: [Barucci et al., Cryogenics (1998)](https://doi.org/10.1016/S0011-2275(97)00111-3) · [Sci-Hub](https://sci-hub.pl/10.1016/S0011-2275(97)00111-3)*
+*Log scale — E spans 3 orders of magnitude (2000→0.9 MPa). Data: [Barucci et al., Cryogenics (1998)](https://doi.org/10.1016/S0011-2275(97)00111-3) · [Sci-Hub](https://sci-hub.pl/10.1016/S0011-2275(97)00111-3)*
 
-![D — przewodnictwo cieplne vs. temperatura M5](plots/m5_D_thermal_cond_vs_temp.png)
+![D — Thermal Conductivity vs. T M5](plots/m5_D_thermal_cond_vs_temp.png)
 
 ---
 
@@ -259,15 +259,15 @@ Kompozyty na osnowie polisiloksanowej (2.5D SiO₂f/SiO₂ — McDermott et al. 
 
 ### Wykresy
 
-![A — krzywa naprężenie–odkształcenie M6](plots/m6_A_stress_strain.png)
+![A — Stress-Strain Curve M6](plots/m6_A_stress_strain.png)
 
-![B — UTS vs. temperatura M6](plots/m6_B_uts_vs_temp.png)
+![B — Tensile Strength vs. T M6](plots/m6_B_uts_vs_temp.png)
 
-*Wyjątkowe zachowanie — UTS zachowuje 33% wartości RT nawet w 1400 °C. Źródło: Hou et al. Techneglas.*
+*Exceptional retention — UTS maintains 33% of RT value even at 1400 °C. Source: Hou et al. Techneglas.*
 
-![C — moduł Younga vs. temperatura M6](plots/m6_C_modulus_vs_temp.png)
+![C — Young's Modulus vs. T M6](plots/m6_C_modulus_vs_temp.png)
 
-![D — przewodnictwo cieplne vs. temperatura M6](plots/m6_D_thermal_cond_vs_temp.png)
+![D — Thermal Conductivity vs. T M6](plots/m6_D_thermal_cond_vs_temp.png)
 
 ---
 
@@ -297,17 +297,17 @@ Kevlar (DuPont, poli-*p*-fenylenotereftaloamid) to włókno aramidowe o najwyżs
 
 ### Wykresy
 
-![A — krzywa naprężenie–odkształcenie M7](plots/m7_A_stress_strain.png)
+![A — Stress-Strain Curve M7](plots/m7_A_stress_strain.png)
 
-*K-29: wyższe wydłużenie (3,6%), K-49: wyższy moduł (125 GPa) przy nieco wyższym UTS. Źródło: DuPont Technical Guide.*
+*K-29: higher elongation (3.6%), K-49: higher modulus (125 GPa) with slightly higher UTS. Source: DuPont Technical Guide.*
 
-![B — UTS vs. temperatura M7](plots/m7_B_uts_vs_temp.png)
+![B — Tensile Strength vs. T M7](plots/m7_B_uts_vs_temp.png)
 
-*Wyjątkowa stabilność — UTS zachowuje >75% od −196 do +430 °C. Źródło: DuPont Technical Guide; PMC12349578.*
+*Exceptional stability — UTS retains >75% from −196 to +430 °C. Source: DuPont Technical Guide; PMC12349578.*
 
-![C — moduł Younga vs. temperatura M7](plots/m7_C_modulus_vs_temp.png)
+![C — Young's Modulus vs. T M7](plots/m7_C_modulus_vs_temp.png)
 
-![D — przewodnictwo cieplne vs. temperatura M7](plots/m7_D_thermal_cond_vs_temp.png)
+![D — Thermal Conductivity vs. T M7](plots/m7_D_thermal_cond_vs_temp.png)
 
 *Dane kriogeniczne z [Ventura & Martelli, Cryogenics (2009)](https://doi.org/10.1016/j.cryogenics.2009.04.001) — k → 0,007 W/m·K przy 7 K.*
 
@@ -340,17 +340,17 @@ Mylar (DuPont Teijin Films) to dwuosiowo orientowana folia BoPET. Powszechnie st
 
 ### Wykresy
 
-![A — krzywa naprężenie–odkształcenie M8](plots/m8_A_stress_strain.png)
+![A — Stress-Strain Curve M8](plots/m8_A_stress_strain.png)
 
-*Model półciągliwy: granica plastyczności przy 67,5 MPa, utwardzanie do 200 MPa przy 137,5%.*
+*Semi-ductile model: yield point at 67.5 MPa, hardening to 200 MPa at 137.5%.*
 
-![B — UTS vs. temperatura M8](plots/m8_B_uts_vs_temp.png)
+![B — Tensile Strength vs. T M8](plots/m8_B_uts_vs_temp.png)
 
-*Silny spadek UTS powyżej 80 °C (Tg PET). Źródło: DuPont Teijin datasheet.*
+*Sharp UTS drop above 80 °C (Tg of PET). Source: DuPont Teijin datasheet.*
 
-![C — moduł Younga vs. temperatura M8](plots/m8_C_modulus_vs_temp.png)
+![C — Young's Modulus vs. T M8](plots/m8_C_modulus_vs_temp.png)
 
-![D — przewodnictwo cieplne vs. temperatura M8](plots/m8_D_thermal_cond_vs_temp.png)
+![D — Thermal Conductivity vs. T M8](plots/m8_D_thermal_cond_vs_temp.png)
 
 ---
 
@@ -381,15 +381,15 @@ UHMWPE (Ultra-High Molecular Weight Polyethylene) — masa cząsteczkowa 3,5–7
 
 ### Wykresy
 
-![A — krzywa naprężenie–odkształcenie M9](plots/m9_A_stress_strain.png)
+![A — Stress-Strain Curve M9](plots/m9_A_stress_strain.png)
 
-![B — UTS vs. temperatura M9](plots/m9_B_uts_vs_temp.png)
+![B — Tensile Strength vs. T M9](plots/m9_B_uts_vs_temp.png)
 
-*Dramatyczny spadek UTS po 23 °C — materiał bardzo wrażliwy termicznie. Źródło: Kurtz ed. 2009.*
+*Dramatic UTS drop above 23 °C — very thermally sensitive material. Source: Kurtz ed. 2009.*
 
-![C — moduł Younga vs. temperatura M9](plots/m9_C_modulus_vs_temp.png)
+![C — Young's Modulus vs. T M9](plots/m9_C_modulus_vs_temp.png)
 
-![D — przewodnictwo cieplne vs. temperatura M9](plots/m9_D_thermal_cond_vs_temp.png)
+![D — Thermal Conductivity vs. T M9](plots/m9_D_thermal_cond_vs_temp.png)
 
 ---
 
@@ -418,13 +418,13 @@ Laminaty z włókien UHMWPE (Dyneema SK75/SK76, Spectra 1000) zalane żywicą ep
 
 ### Wykresy
 
-![A — krzywa naprężenie–odkształcenie M10](plots/m10_A_stress_strain.png)
+![A — Stress-Strain Curve M10](plots/m10_A_stress_strain.png)
 
-![B — UTS vs. temperatura M10](plots/m10_B_uts_vs_temp.png)
+![B — Tensile Strength vs. T M10](plots/m10_B_uts_vs_temp.png)
 
-![C — moduł Younga vs. temperatura M10](plots/m10_C_modulus_vs_temp.png)
+![C — Young's Modulus vs. T M10](plots/m10_C_modulus_vs_temp.png)
 
-![D — przewodnictwo cieplne vs. temperatura M10](plots/m10_D_thermal_cond_vs_temp.png)
+![D — Thermal Conductivity vs. T M10](plots/m10_D_thermal_cond_vs_temp.png)
 
 ---
 
@@ -453,15 +453,15 @@ Laminat z tkaniny Kevlar-29/49 infuzowanej żywicą epoksydową (np. Hexcel 8552
 
 ### Wykresy
 
-![A — krzywa naprężenie–odkształcenie M11](plots/m11_A_stress_strain.png)
+![A — Stress-Strain Curve M11](plots/m11_A_stress_strain.png)
 
-![B — UTS vs. temperatura M11](plots/m11_B_uts_vs_temp.png)
+![B — Tensile Strength vs. T M11](plots/m11_B_uts_vs_temp.png)
 
-*Dobra stabilność UTS od −55 do +180 °C — Kevlar stabilizuje osnowę epoksydową. Źródło: Duan et al. 2006.*
+*Good UTS stability from −55 to +180 °C — Kevlar fibers stabilize the epoxy matrix. Source: Duan et al. 2006.*
 
-![C — moduł Younga vs. temperatura M11](plots/m11_C_modulus_vs_temp.png)
+![C — Young's Modulus vs. T M11](plots/m11_C_modulus_vs_temp.png)
 
-![D — przewodnictwo cieplne vs. temperatura M11](plots/m11_D_thermal_cond_vs_temp.png)
+![D — Thermal Conductivity vs. T M11](plots/m11_D_thermal_cond_vs_temp.png)
 
 ---
 
@@ -492,17 +492,17 @@ Węglowo-fenolowe (C/Ph) kompozyty to **złoty standard ablacyjnego TPS** dla ra
 
 ### Wykresy
 
-![A — krzywa naprężenie–odkształcenie M12](plots/m12_A_stress_strain.png)
+![A — Stress-Strain Curve M12](plots/m12_A_stress_strain.png)
 
-![B — UTS vs. temperatura M12](plots/m12_B_uts_vs_temp.png)
+![B — Tensile Strength vs. T M12](plots/m12_B_uts_vs_temp.png)
 
-*Doskonałe zachowanie UTS — laminat węglowy stabilizuje strukturę nawet przy 2000 °C. Źródło: Natali et al. 2012.*
+*Excellent UTS retention — carbon phenolic laminate maintains structural integrity even at 2000 °C. Source: Natali et al. 2012.*
 
-![C — moduł Younga vs. temperatura M12](plots/m12_C_modulus_vs_temp.png)
+![C — Young's Modulus vs. T M12](plots/m12_C_modulus_vs_temp.png)
 
-![D — przewodnictwo cieplne vs. temperatura M12](plots/m12_D_thermal_cond_vs_temp.png)
+![D — Thermal Conductivity vs. T M12](plots/m12_D_thermal_cond_vs_temp.png)
 
-*k = 2 W/m·K — najwyższe z 13 materiałów; ważne dla odprowadzania ciepła z warstwy ablacyjnej. Źródło: Tran et al. 2014.*
+*k = 2 W/m·K — highest among the 13 materials; important for heat dissipation from the ablative layer. Source: Tran et al. 2014.*
 
 ---
 
@@ -533,60 +533,45 @@ Szersza rodzina kompozytów na osnowie polisiloksanowej, obejmująca warianty zb
 
 ### Wykresy
 
-![A — krzywa naprężenie–odkształcenie M13](plots/m13_A_stress_strain.png)
+![A — Stress-Strain Curve M13](plots/m13_A_stress_strain.png)
 
-![B — UTS vs. temperatura M13](plots/m13_B_uts_vs_temp.png)
+![B — Tensile Strength vs. T M13](plots/m13_B_uts_vs_temp.png)
 
-![C — moduł Younga vs. temperatura M13](plots/m13_C_modulus_vs_temp.png)
+![C — Young's Modulus vs. T M13](plots/m13_C_modulus_vs_temp.png)
 
-![D — przewodnictwo cieplne vs. temperatura M13](plots/m13_D_thermal_cond_vs_temp.png)
+![D — Thermal Conductivity vs. T M13](plots/m13_D_thermal_cond_vs_temp.png)
 
 ---
 
 ## 15. Zestawienie porównawcze wszystkich materiałów
 
-### 15.1 Zestawienie tabelaryczne (RT = 23 °C)
+### 15.1 Material Properties Summary (RT = 23 °C)
 
-| # | Materiał | UTS [MPa] | E [GPa] | ρ [kg/m³] | T_min [°C] | T_max [°C] | k [W/m·K] | K_IC [MPa·m^0.5] | Główne źródło |
-|---|---|---|---|---|---|---|---|---|---|
-| M1 | Kapton | 231 | 2,5 | 1 420 | −269 | 400 | 0,12 | 3,5 | [DuPont Kapton HN datasheet](https://www.dupont.com/content/dam/dupont/amer/us/en/products/ei-transformation/documents/EI-10142_Kapton-HN-datasheet.pdf) |
-| M2 | POSS-PI | 210 | 2,3 | 1 450 | −269 | 450 | 0,15 | 2,0 | [Brunsvold et al. (2004)](https://doi.org/10.1177/0954008304024680) · [Sci-Hub](https://sci-hub.pl/10.1177/0954008304024680) |
-| M3 | Fen. żywica | 45 | 3,5 | 1 250 | −55 | 2 000* | 0,30 | 0,7 | [AZoM ID:475](https://www.azom.com/article.aspx?ArticleID=475); [Natali et al. (2012)](https://doi.org/10.1016/j.compositesa.2011.10.009) |
-| M4 | Ftalonitryl | 65 | 4,0 | 1 250 | −55 | 375 | 0,20 | 1,0 | [Hergenrother et al. (2005)](https://doi.org/10.1016/j.polymer.2005.09.039) · [Sci-Hub](https://sci-hub.pl/10.1016/j.polymer.2005.09.039) |
-| M5 | RTV Silikon | 6 | 0,003 | 1 175 | −115 | 300 | 0,25 | — | [AZoM ID:920](https://www.azom.com/properties.aspx?ArticleID=920); [MatWeb RTV566](https://www.matweb.com/search/datasheettext.aspx?matguid=70466aea960a4c84be3bbc5045c219aa) |
-| M6 | Komp. Polisil. | 182 | 45,5 | 1 320 | −60 | 1 400* | 0,21 | 2,52 | [McDermott et al. (2022)](https://doi.org/10.1177/00219983211038622) · [Sci-Hub](https://sci-hub.pl/10.1177/00219983211038622) |
-| M7a | Kevlar-29 | 3 600 | 70,5 | 1 440 | −196 | 430 | 0,04 | — | [DuPont Kevlar Tech. Guide](https://www.dupont.com/content/dam/dupont/amer/us/en/products/ei-transformation/documents/Kevlar_Technical_Guide.pdf) |
-| M7b | Kevlar-49 | 3 800 | 125 | 1 440 | −196 | 430 | 0,04 | — | [DuPont Kevlar Tech. Guide](https://www.dupont.com/content/dam/dupont/amer/us/en/products/ei-transformation/documents/Kevlar_Technical_Guide.pdf) |
-| M8 | Mylar BoPET | 200 | 3,95 | 1 395 | −70 | 150 | 0,15 | 3,5 | [DuPont Teijin Mylar A datasheet](https://www.dupont.com/content/dam/dupont/amer/us/en/products/ei-transformation/documents/DFC-H-81479-Mylar-A-Data-Sheet.pdf) |
-| M9 | UHMWPE | 200 | 0,9 | 940 | −150 | 80 | 0,44 | 2,0 | [Kurtz ed. (2009)](https://doi.org/10.1016/B978-0-12-374721-1.00002-7); [Sobieraj & Rimnac (2009)](https://doi.org/10.1016/j.jmbbm.2008.07.002) |
-| M10 | Komp. PE | 400 | 30 | 1 000 | −150 | 120 | 0,35 | — | [Koh et al. (2010)](https://doi.org/10.1016/j.ijimpeng.2009.11.010); [DSM Dyneema UD](https://www.dsm.com/dyneema) |
-| M11 | Komp. Kevlar | 600 | 40 | 1 380 | −55 | 180 | 0,12 | — | [Duan et al. (2006)](https://doi.org/10.1016/j.ijimpeng.2005.07.007); [Hexcel 8552](https://www.hexcel.com/user_upload/assets/datasheets/Prepreg_Data_Sheets/8552_eu.pdf) |
-| M12 | Komp. fen. | 350 | 35 | 1 550 | −55 | 2 000* | 2,00 | 15 | [Natali et al. (2012)](https://doi.org/10.1016/j.compositesa.2011.10.009); [Tran et al. (2014)](https://doi.org/10.2514/1.T4165) |
-| M13 | Komp. Polisil. II | 150 | 25 | 1 450 | −60 | 1 200* | 0,50 | 2,0 | [McDermott et al. (2022)](https://doi.org/10.1177/00219983211038622); [PMC11945185](https://pmc.ncbi.nlm.nih.gov/articles/PMC11945185/) |
+![Table 15.1 — Material Properties Summary](plots/compare_G_table.png)
 
-*\* T_max dla materiałów ablacyjnych oznacza skuteczną ochronę ablacyjną, nie ciągłą pracę strukturalną.*
+*T_max for ablative materials (marked *) denotes effective ablative protection, not continuous structural service.*
 
 ### 15.2 Wykresy porównawcze
 
-![Porównanie UTS](plots/compare_A_uts.png)
+![UTS Comparison](plots/compare_A_uts.png)
 
-*Kevlar-49 i Kevlar-29 dominują o rząd wielkości nad pozostałymi.*
+*Kevlar-49 and Kevlar-29 dominate by an order of magnitude over the rest.*
 
-![Porównanie modułu Younga](plots/compare_B_modulus.png)
+![Young's Modulus Comparison](plots/compare_B_modulus.png)
 
-*Kevlar-49 (125 GPa) — najsztywniejszy. M5 RTV (3 MPa) — najmiększy.*
+*Kevlar-49 (125 GPa) — stiffest. M5 RTV (3 MPa) — softest.*
 
-![Porównanie gęstości](plots/compare_C_density.png)
+![Density Comparison](plots/compare_C_density.png)
 
-*UHMWPE (940 kg/m³) jest jedynym materiałem lżejszym od wody.*
+*UHMWPE (940 kg/m³) is the only material lighter than water.*
 
-![Zakresy temperatur pracy](plots/compare_D_temp_range.png)
+![Operating Temperature Ranges](plots/compare_D_temp_range.png)
 
-*Materiały ablacyjne (M3, M6, M12, M13) pokrywają największy zakres. Krytyczny próg LEO (−150…+150 °C) zaznaczono punktowanymi liniami.*
+*Ablative materials (M3, M6, M12, M13) cover the widest range. The critical LEO envelope (−150…+150 °C) is marked with dotted lines.*
 
-![Wytrzymałość właściwa](plots/compare_E_spec_strength.png)
+![Specific Strength Comparison](plots/compare_E_spec_strength.png)
 
-*Kevlar zdecydowanie dominuje — wytrzymałość właściwa 2,5 km²/s².*
+*Kevlar clearly dominates — specific strength 2.5 km²/s².*
 
 ---
 
@@ -604,7 +589,7 @@ Szersza rodzina kompozytów na osnowie polisiloksanowej, obejmująca warianty zb
 
 ### Wynik — Top-5
 
-![Wykres radarowy Top-5](plots/compare_F_radar_top5.png)
+![Top-5 Radar Chart](plots/compare_F_radar_top5.png)
 
 ---
 
@@ -690,4 +675,4 @@ Szersza rodzina kompozytów na osnowie polisiloksanowej, obejmująca warianty zb
 
 ---
 
-*Wykresy wygenerowano skryptem `plots/generate_plots_all.py`. Dane dla M5–M8 — szczegółowe źródła w `../Filip/raport_filip.md`. Dane dla M1 — DuPont Kapton HN datasheet + [Google Doc — dane projektu](https://docs.google.com/document/d/1SUNR-o6LlR9Npx723FPGlJ8TDAnhCzqREIrAE7FIKa0/edit).*
+*Plots generated with `plots/generate_plots_all.py`. Data for M5–M8 — detailed sources in `../Filip/raport_filip.md`. Data for M1 — DuPont Kapton HN datasheet + [Google Doc — project data](https://docs.google.com/document/d/1SUNR-o6LlR9Npx723FPGlJ8TDAnhCzqREIrAE7FIKa0/edit).*

@@ -1,20 +1,21 @@
 """
-Generowanie wykresów właściwości materiałów — Raport zbiorczy M1–M13
-Porównanie organicznych materiałów dla pojazdów kosmicznych LEO / startu
+Material property plots — Collective Report M1-M13
+Comparison of organic materials for spacecraft (LEO / launch)
 
-Wykresy na materiał:
-  A – krzywa naprężenie–odkształcenie (T = 23 °C)
-  B – wytrzymałość na rozciąganie vs. temperatura
-  C – moduł Younga vs. temperatura
-  D – przewodnictwo cieplne vs. temperatura
+Per-material plots:
+  A – stress-strain curve (T = 23 °C)
+  B – tensile strength vs. temperature
+  C – Young's modulus vs. temperature
+  D – thermal conductivity vs. temperature
 
-Wykresy porównawcze (compare_*):
-  compare_A_uts.png           – UTS (log)
-  compare_B_modulus.png       – E (log)
-  compare_C_density.png       – gęstość
-  compare_D_temp_range.png    – zakres temperatur
-  compare_E_spec_strength.png – wytrzymałość właściwa UTS/ρ
-  compare_F_radar_top5.png    – wykres radarowy (Top-5)
+Comparison plots (compare_*):
+  compare_A_uts.png           – UTS (log scale)
+  compare_B_modulus.png       – E (log scale)
+  compare_C_density.png       – density
+  compare_D_temp_range.png    – service temperature range
+  compare_E_spec_strength.png – specific strength UTS/rho
+  compare_F_radar_top5.png    – radar chart (Top-5)
+  compare_G_table.png         – styled summary table 15.1
 """
 
 import matplotlib
@@ -38,57 +39,57 @@ plt.rcParams.update({
 })
 
 # ════════════════════════════════════════════════════════════════
-# 1.  DANE MATERIAŁÓW (metadane RT)
+# 1.  MATERIAL METADATA (RT values)
 # ════════════════════════════════════════════════════════════════
 MATS = {
-    "M1":  {"name": "Kapton (M1)",               "color": "#C0392B",
+    "M1":  {"name": "Kapton (M1)",                "color": "#C0392B",
              "uts": 231,   "E": 2.50,   "rho": 1420, "k": 0.12,
              "Cp": 1090,   "t_min": -269, "t_max": 400,  "Kic": 3.5},
-    "M2":  {"name": "POSS-Poliimid (M2)",        "color": "#E74C3C",
+    "M2":  {"name": "POSS-Polyimide (M2)",        "color": "#E74C3C",
              "uts": 210,   "E": 2.30,   "rho": 1450, "k": 0.15,
              "Cp": 1050,   "t_min": -269, "t_max": 450,  "Kic": 2.0},
-    "M3":  {"name": "Żywica fenolowa (M3)",      "color": "#935116",
+    "M3":  {"name": "Phenolic Resin (M3)",         "color": "#935116",
              "uts": 45,    "E": 3.50,   "rho": 1250, "k": 0.30,
              "Cp": 1200,   "t_min":  -55, "t_max": 2000, "Kic": 0.7},
-    "M4":  {"name": "Ftalonitryl (M4)",          "color": "#784212",
+    "M4":  {"name": "Phthalonitrile Resin (M4)",  "color": "#784212",
              "uts": 65,    "E": 4.00,   "rho": 1250, "k": 0.20,
              "Cp": 1200,   "t_min":  -55, "t_max": 375,  "Kic": 1.0},
-    "M5":  {"name": "RTV Silikon (M5)",          "color": "#E67E22",
+    "M5":  {"name": "RTV Silicone (M5)",           "color": "#E67E22",
              "uts": 6,     "E": 0.003,  "rho": 1175, "k": 0.25,
              "Cp": 1400,   "t_min": -115, "t_max": 300,  "Kic": None},
-    "M6":  {"name": "Komp. Polisiloks. (M6)",    "color": "#8E44AD",
+    "M6":  {"name": "Polysiloxane Compos. (M6)",  "color": "#8E44AD",
              "uts": 182,   "E": 45.50,  "rho": 1320, "k": 0.21,
              "Cp": 1400,   "t_min":  -60, "t_max": 1400, "Kic": 2.52},
-    "M7a": {"name": "Kevlar-29 (M7)",            "color": "#F1C40F",
+    "M7a": {"name": "Kevlar-29 (M7)",             "color": "#F1C40F",
              "uts": 3600,  "E": 70.50,  "rho": 1440, "k": 0.04,
              "Cp": 1420,   "t_min": -196, "t_max": 430,  "Kic": None},
-    "M7b": {"name": "Kevlar-49 (M7)",            "color": "#D4AC0D",
+    "M7b": {"name": "Kevlar-49 (M7)",             "color": "#D4AC0D",
              "uts": 3800,  "E": 125.00, "rho": 1440, "k": 0.04,
              "Cp": 1420,   "t_min": -196, "t_max": 430,  "Kic": None},
-    "M8":  {"name": "Mylar BoPET (M8)",          "color": "#2980B9",
+    "M8":  {"name": "Mylar BoPET (M8)",           "color": "#2980B9",
              "uts": 200,   "E": 3.95,   "rho": 1395, "k": 0.15,
              "Cp": 1275,   "t_min":  -70, "t_max": 150,  "Kic": 3.5},
-    "M9":  {"name": "UHMWPE (M9)",               "color": "#27AE60",
+    "M9":  {"name": "UHMWPE (M9)",                "color": "#27AE60",
              "uts": 200,   "E": 0.90,   "rho": 940,  "k": 0.44,
              "Cp": 1850,   "t_min": -150, "t_max":  80,  "Kic": 2.0},
-    "M10": {"name": "Komp. PE (M10)",            "color": "#1E8449",
+    "M10": {"name": "PE Composite (M10)",         "color": "#1E8449",
              "uts": 400,   "E": 30.00,  "rho": 1000, "k": 0.35,
              "Cp": 1500,   "t_min": -150, "t_max": 120,  "Kic": None},
-    "M11": {"name": "Komp. Kevlar (M11)",        "color": "#B7950B",
+    "M11": {"name": "Kevlar Composite (M11)",     "color": "#B7950B",
              "uts": 600,   "E": 40.00,  "rho": 1380, "k": 0.12,
              "Cp": 1300,   "t_min":  -55, "t_max": 180,  "Kic": None},
-    "M12": {"name": "Komp. fenolowy (M12)",      "color": "#6E2F1A",
+    "M12": {"name": "Phenolic Composite (M12)",   "color": "#6E2F1A",
              "uts": 350,   "E": 35.00,  "rho": 1550, "k": 2.00,
              "Cp": 1400,   "t_min":  -55, "t_max": 2000, "Kic": 15.0},
-    "M13": {"name": "Komp. Polisiloks. II (M13)","color": "#6C3483",
+    "M13": {"name": "Polysil. Compos. II (M13)",  "color": "#6C3483",
              "uts": 150,   "E": 25.00,  "rho": 1450, "k": 0.50,
              "Cp": 1300,   "t_min":  -60, "t_max": 1200, "Kic": 2.0},
 }
 
 # ════════════════════════════════════════════════════════════════
-# 2.  DANE TEMPERATUROWE
+# 2.  TEMPERATURE-DEPENDENT DATA
 #     uts: ([T °C], [UTS MPa])
-#     E:   ([T °C], [E GPa])  — M5: E w MPa!
+#     E:   ([T °C], [E GPa])  — M5: E in MPa!
 #     k:   ([T K],  [k W/m·K])
 # ════════════════════════════════════════════════════════════════
 TD = {
@@ -127,7 +128,7 @@ TD = {
     "M5": {
         "uts": ([-115, -80, -40, 0, 23, 100, 200, 300],
                 [15.0, 12.0, 10.0, 7.5, 6.0, 5.5, 4.5, 3.5]),
-        # E w MPa (nie GPa!) — zakres 0.9–2000 MPa
+        # E in MPa (not GPa!) — range 0.9 to 2000 MPa
         "E":   ([-115, -100, -80, -75, -50, -20, 0, 23, 100, 200, 300],
                 [2000, 800, 100, 40, 8, 4, 3, 2.0, 1.6, 1.2, 0.9]),
         "k":   ([4, 10, 20, 50, 100, 200, 300],
@@ -204,7 +205,7 @@ TD = {
 }
 
 # ════════════════════════════════════════════════════════════════
-# 3.  PARAMETRY KRZYWYCH NAPRĘŻENIE–ODKSZTAŁCENIE
+# 3.  STRESS-STRAIN PARAMETERS
 # ════════════════════════════════════════════════════════════════
 SS = {
     "M1":  {"model": "semi_ductile",   "E_GPa": 2.50,  "sy":  69,  "su": 231,  "ef": 0.72},
@@ -224,7 +225,7 @@ SS = {
 }
 
 # ════════════════════════════════════════════════════════════════
-# 4.  FUNKCJE POMOCNICZE
+# 4.  HELPER FUNCTIONS
 # ════════════════════════════════════════════════════════════════
 
 def savefig(fig, fname):
@@ -236,7 +237,7 @@ def savefig(fig, fname):
 
 
 def compute_ss(ss):
-    """Zwraca (odkształcenie [], naprężenie [MPa])."""
+    """Returns (strain [], stress [MPa])."""
     model = ss["model"]
     if model in ("brittle", "brittle_linear"):
         E_MPa = ss["E_GPa"] * 1000
@@ -274,7 +275,7 @@ def _style(ax, xlabel, ylabel, title):
     ax.grid(True, alpha=0.3)
 
 # ════════════════════════════════════════════════════════════════
-# 5.  WYKRESY INDYWIDUALNE — funkcje (jeden materiał)
+# 5.  INDIVIDUAL MATERIAL PLOTS
 # ════════════════════════════════════════════════════════════════
 
 def plot_A(code, name, color, ss):
@@ -282,14 +283,14 @@ def plot_A(code, name, color, ss):
     st, sg = compute_ss(ss)
     ax.plot(st * 100, sg, color=color, lw=2)
     ax.scatter([st[-1] * 100], [sg[-1]], color=color, s=60, zorder=5,
-               label=f"Zerwanie: {sg[-1]:.0f} MPa")
+               label=f"Fracture: {sg[-1]:.0f} MPa")
     if ss.get("sy"):
         ey = ss["sy"] / (ss["E_GPa"] * 1000)
         ax.axvline(ey * 100, ls="--", color="gray", alpha=0.7, lw=1.2,
-                   label=f"Granica plastyczności: {ss['sy']:.0f} MPa")
+                   label=f"Yield point: {ss['sy']:.0f} MPa")
     ax.legend(fontsize=8)
-    _style(ax, "Odkształcenie ε [%]", "Naprężenie σ [MPa]",
-           f"A — Krzywa naprężenie–odkształcenie\n{name}  (T = 23 °C)")
+    _style(ax, "Strain ε [%]", "Stress σ [MPa]",
+           f"A — Stress-Strain Curve\n{name}  (T = 23 °C)")
     savefig(fig, f"{code.lower()}_A_stress_strain.png")
 
 
@@ -298,8 +299,8 @@ def plot_B(code, name, color, td_uts):
     fig, ax = plt.subplots(figsize=(6, 4.5))
     ax.plot(T, U, "o-", color=color, lw=2)
     ax.axvline(23, ls=":", color="black", alpha=0.5, lw=1)
-    _style(ax, "Temperatura [°C]", "UTS [MPa]",
-           f"B — Wytrzymałość na rozciąganie vs. T\n{name}")
+    _style(ax, "Temperature [°C]", "UTS [MPa]",
+           f"B — Tensile Strength vs. T\n{name}")
     savefig(fig, f"{code.lower()}_B_uts_vs_temp.png")
 
 
@@ -308,13 +309,13 @@ def plot_C(code, name, color, td_E, E_in_MPa=False):
     fig, ax = plt.subplots(figsize=(6, 4.5))
     if E_in_MPa:
         ax.semilogy(T, E, "s-", color=color, lw=2)
-        ylabel = "Moduł Younga E [MPa]"
+        ylabel = "Young's Modulus E [MPa]"
     else:
         ax.plot(T, E, "s-", color=color, lw=2)
-        ylabel = "Moduł Younga E [GPa]"
+        ylabel = "Young's Modulus E [GPa]"
     ax.axvline(23, ls=":", color="black", alpha=0.5, lw=1)
-    _style(ax, "Temperatura [°C]", ylabel,
-           f"C — Moduł Younga vs. T\n{name}")
+    _style(ax, "Temperature [°C]", ylabel,
+           f"C — Young's Modulus vs. T\n{name}")
     savefig(fig, f"{code.lower()}_C_modulus_vs_temp.png")
 
 
@@ -326,13 +327,13 @@ def plot_D(code, name, color, td_k, logx=False):
     else:
         T_C = [t - 273.15 for t in T_K]
         ax.plot(T_C, k, "^-", color=color, lw=2)
-    xlabel = "Temperatura [K]" if logx else "Temperatura [°C]"
-    _style(ax, xlabel, "Przewodnictwo cieplne k [W/m·K]",
-           f"D — Przewodnictwo cieplne vs. T\n{name}")
+    xlabel = "Temperature [K]" if logx else "Temperature [°C]"
+    _style(ax, xlabel, "Thermal Conductivity k [W/m·K]",
+           f"D — Thermal Conductivity vs. T\n{name}")
     savefig(fig, f"{code.lower()}_D_thermal_cond_vs_temp.png")
 
 # ════════════════════════════════════════════════════════════════
-# 6.  SPECJALNE WYKRESY — M7 (Kevlar-29 i Kevlar-49 razem)
+# 6.  SPECIAL PLOTS — M7 (Kevlar-29 and Kevlar-49 together)
 # ════════════════════════════════════════════════════════════════
 
 def plot_M7_A():
@@ -345,8 +346,8 @@ def plot_M7_A():
         ax.scatter([st[-1] * 100], [sg[-1]], color=col, s=70, zorder=5,
                    marker="x", linewidths=2.5)
     ax.legend()
-    _style(ax, "Odkształcenie ε [%]", "Naprężenie σ [MPa]",
-           "A — Krzywa naprężenie–odkształcenie\nKevlar-29 / Kevlar-49  (T = 23 °C)")
+    _style(ax, "Strain ε [%]", "Stress σ [MPa]",
+           "A — Stress-Strain Curve\nKevlar-29 / Kevlar-49  (T = 23 °C)")
     savefig(fig, "m7_A_stress_strain.png")
 
 
@@ -358,8 +359,8 @@ def plot_M7_B():
     ax.plot(T49, U49, "s-", color=MATS["M7b"]["color"], lw=2, label="Kevlar-49")
     ax.axvline(23, ls=":", color="black", alpha=0.5, lw=1)
     ax.legend()
-    _style(ax, "Temperatura [°C]", "UTS [MPa]",
-           "B — Wytrzymałość na rozciąganie vs. T\nKevlar-29 / Kevlar-49")
+    _style(ax, "Temperature [°C]", "UTS [MPa]",
+           "B — Tensile Strength vs. T\nKevlar-29 / Kevlar-49")
     savefig(fig, "m7_B_uts_vs_temp.png")
 
 
@@ -371,8 +372,8 @@ def plot_M7_C():
     ax.plot(T49, E49, "s-", color=MATS["M7b"]["color"], lw=2, label="Kevlar-49")
     ax.axvline(23, ls=":", color="black", alpha=0.5, lw=1)
     ax.legend()
-    _style(ax, "Temperatura [°C]", "Moduł Younga E [GPa]",
-           "C — Moduł Younga vs. T\nKevlar-29 / Kevlar-49")
+    _style(ax, "Temperature [°C]", "Young's Modulus E [GPa]",
+           "C — Young's Modulus vs. T\nKevlar-29 / Kevlar-49")
     savefig(fig, "m7_C_modulus_vs_temp.png")
 
 
@@ -380,12 +381,12 @@ def plot_M7_D():
     T_K, k = TD["M7"]["k"]
     fig, ax = plt.subplots(figsize=(6, 4.5))
     ax.semilogx(T_K, k, "^-", color=MATS["M7a"]["color"], lw=2)
-    _style(ax, "Temperatura [K]", "Przewodnictwo cieplne k [W/m·K]",
-           "D — Przewodnictwo cieplne vs. T (kriostat)\nKevlar (Ventura & Martelli 2009)")
+    _style(ax, "Temperature [K]", "Thermal Conductivity k [W/m·K]",
+           "D — Thermal Conductivity vs. T (cryogenic)\nKevlar (Ventura & Martelli 2009)")
     savefig(fig, "m7_D_thermal_cond_vs_temp.png")
 
 # ════════════════════════════════════════════════════════════════
-# 7.  PĘTLA GŁÓWNA — wykresy indywidualne
+# 7.  MAIN LOOP — individual material plots
 # ════════════════════════════════════════════════════════════════
 
 INDIVIDUAL = [
@@ -393,7 +394,7 @@ INDIVIDUAL = [
     "M6", "M8", "M9", "M10", "M11", "M12", "M13"
 ]
 
-print("=== Generowanie wykresów indywidualnych ===")
+print("=== Generating individual material plots ===")
 for code in INDIVIDUAL:
     m = MATS[code]
     td = TD[code]
@@ -412,20 +413,18 @@ plot_M7_C()
 plot_M7_D()
 
 # ════════════════════════════════════════════════════════════════
-# 8.  WYKRESY PORÓWNAWCZE
+# 8.  COMPARISON PLOTS
 # ════════════════════════════════════════════════════════════════
 
-# Kolejność i etykiety dla wykresów porównawczych
-# (M7a i M7b osobno dla UTS, E; M7 jako jeden wpis dla gęstości)
 COMP_KEYS = ["M1","M2","M3","M4","M5","M6","M7a","M7b",
              "M8","M9","M10","M11","M12","M13"]
 COMP_LABELS = [
-    "Kapton", "POSS-PI", "Fenolowa", "Ftalonitryl",
-    "RTV Silikon", "Komp. Polisiloks.",
+    "Kapton", "POSS-PI", "Phenolic Resin", "Phthalonitrile",
+    "RTV Silicone", "Polysil. Compos.",
     "Kevlar-29", "Kevlar-49",
     "Mylar BoPET", "UHMWPE",
-    "Komp. PE", "Komp. Kevlar",
-    "Komp. fenolowy", "Komp. Polisiloks. II"
+    "PE Composite", "Kevlar Composite",
+    "Phenolic Compos.", "Polysil. Compos. II"
 ]
 COMP_COLORS = [MATS[k]["color"] for k in COMP_KEYS]
 COMP_UTS    = [MATS[k]["uts"]   for k in COMP_KEYS]
@@ -449,35 +448,37 @@ def hbar(ax, values, labels, colors, xlabel, title, log=False):
     ax.grid(True, axis="x", alpha=0.3)
 
 
-print("\n=== Wykresy porównawcze ===")
+print("\n=== Comparison plots ===")
 
 # ── compare_A: UTS ──────────────────────────────────────────────
 fig, ax = plt.subplots(figsize=(9, 6.5))
 hbar(ax, COMP_UTS, COMP_LABELS, COMP_COLORS,
-     "UTS [MPa] — skala logarytmiczna", "Porównanie wytrzymałości na rozciąganie (UTS)", log=True)
+     "UTS [MPa] — logarithmic scale",
+     "Tensile Strength (UTS) Comparison", log=True)
 savefig(fig, "compare_A_uts.png")
 
-# ── compare_B: Moduł Younga ─────────────────────────────────────
+# ── compare_B: Young's Modulus ──────────────────────────────────
 fig, ax = plt.subplots(figsize=(9, 6.5))
 hbar(ax, COMP_E, COMP_LABELS, COMP_COLORS,
-     "Moduł Younga E [GPa] — skala logarytmiczna",
-     "Porównanie modułu Younga", log=True)
+     "Young's Modulus E [GPa] — logarithmic scale",
+     "Young's Modulus Comparison", log=True)
 savefig(fig, "compare_B_modulus.png")
 
-# ── compare_C: Gęstość ──────────────────────────────────────────
+# ── compare_C: Density ─────────────────────────────────────────
 fig, ax = plt.subplots(figsize=(9, 6.5))
 hbar(ax, COMP_RHO, COMP_LABELS, COMP_COLORS,
-     "Gęstość ρ [kg/m³]", "Porównanie gęstości materiałów")
+     "Density ρ [kg/m³]",
+     "Material Density Comparison")
 savefig(fig, "compare_C_density.png")
 
-# ── compare_D: Zakres temperatur ───────────────────────────────
-RANGE_KEYS  = ["M1","M2","M3","M4","M5","M6","M7a",
-               "M8","M9","M10","M11","M12","M13"]
-RANGE_LBLS  = ["Kapton","POSS-PI","Fenolowa","Ftalonitryl",
-               "RTV Silikon","Komp. Polisiloks.","Kevlar",
-               "Mylar BoPET","UHMWPE","Komp. PE",
-               "Komp. Kevlar","Komp. fenolowy","Komp. Polisiloks. II"]
-RANGE_COLS  = [MATS[k]["color"] for k in RANGE_KEYS]
+# ── compare_D: Service Temperature Range ───────────────────────
+RANGE_KEYS = ["M1","M2","M3","M4","M5","M6","M7a",
+              "M8","M9","M10","M11","M12","M13"]
+RANGE_LBLS = ["Kapton","POSS-PI","Phenolic Resin","Phthalonitrile",
+              "RTV Silicone","Polysil. Compos.","Kevlar",
+              "Mylar BoPET","UHMWPE","PE Composite",
+              "Kevlar Composite","Phenolic Compos.","Polysil. Compos. II"]
+RANGE_COLS = [MATS[k]["color"] for k in RANGE_KEYS]
 T_MINS = [MATS[k]["t_min"] for k in RANGE_KEYS]
 T_MAXS = [MATS[k]["t_max"] for k in RANGE_KEYS]
 
@@ -488,8 +489,8 @@ for i, (lo, hi, col, lbl) in enumerate(zip(T_MINS, T_MAXS, RANGE_COLS, RANGE_LBL
     ax.text(hi + 30, i, f"{hi}°C", va="center", fontsize=7.5)
 ax.set_yticks(y)
 ax.set_yticklabels(RANGE_LBLS, fontsize=8.5)
-ax.set_xlabel("Temperatura [°C]")
-ax.set_title("Zakres temperatur roboczych materiałów")
+ax.set_xlabel("Temperature [°C]")
+ax.set_title("Service Temperature Range of Materials")
 ax.axvline(0, color="black", lw=0.8, alpha=0.5)
 ax.axvline(23, color="blue", lw=0.8, ls="--", alpha=0.5, label="T = 23 °C")
 ax.axvline(-150, color="cyan", lw=0.8, ls=":", alpha=0.6, label="LEO min ≈ −150 °C")
@@ -498,36 +499,32 @@ ax.legend(fontsize=8, loc="lower right")
 ax.grid(True, axis="x", alpha=0.3)
 savefig(fig, "compare_D_temp_range.png")
 
-# ── compare_E: Wytrzymałość właściwa ───────────────────────────
-SPEC_STR = [u / r * 1000 for u, r in zip(COMP_UTS, COMP_RHO)]  # kN·m/kg = m²/s²  / 1e3
+# ── compare_E: Specific Strength ───────────────────────────────
+SPEC_STR = [u / r * 1000 for u, r in zip(COMP_UTS, COMP_RHO)]
 
 fig, ax = plt.subplots(figsize=(9, 6.5))
 hbar(ax, SPEC_STR, COMP_LABELS, COMP_COLORS,
-     "Wytrzymałość właściwa UTS/ρ [kN·m/kg]",
-     "Wytrzymałość właściwa (specific strength)", log=True)
+     "Specific Strength UTS/ρ [kN·m/kg]",
+     "Specific Strength (UTS / density)", log=True)
 savefig(fig, "compare_E_spec_strength.png")
 
-# ── compare_F: Wykres radarowy — Top-5 ─────────────────────────
-# Kandydaci rekomendowani: M1, M7a, M12, M6, M2
-# Osie: UTS_spec, E, Tmax, AO-rez., Zasob temp. (t_max-t_min)/1000
+# ── compare_F: Radar Chart — Top-5 ─────────────────────────────
 TOP5_KEYS  = ["M1", "M7a", "M12", "M6", "M2"]
-TOP5_NAMES = ["Kapton\n(M1)", "Kevlar-29\n(M7)", "Komp. fenolowy\n(M12)",
-              "Komp. Polisiloks.\n(M6)", "POSS-Poliimid\n(M2)"]
-# Normalizowane osi (0–1 scale): [wyt. właściwa, moduł, T_max, Odp. AO, zakres T]
+TOP5_NAMES = ["Kapton\n(M1)", "Kevlar-29\n(M7)", "Phenolic Compos.\n(M12)",
+              "Polysil. Compos.\n(M6)", "POSS-Polyimide\n(M2)"]
 RAW = np.array([
     # sp_str  E_norm  T_max  AO_res  T_range
-    [231/1420, 2.5,  400,   0.6,  669 ],   # M1  Kapton
-    [3600/1440, 70.5, 430,  0.9,  626 ],   # M7a Kevlar-29
-    [350/1550, 35.0, 2000,  0.8,  2055],   # M12 Komp. fenolowy
-    [182/1320, 45.5, 1400,  0.95, 1460],   # M6  Komp. Polisiloks.
-    [210/1450, 2.3,  450,   0.95, 719 ],   # M2  POSS-PI
+    [231/1420, 2.5,  400,   0.6,  669 ],
+    [3600/1440, 70.5, 430,  0.9,  626 ],
+    [350/1550, 35.0, 2000,  0.8,  2055],
+    [182/1320, 45.5, 1400,  0.95, 1460],
+    [210/1450, 2.3,  450,   0.95, 719 ],
 ])
-# Normalizacja kolumn do [0,1]
 col_max = RAW.max(axis=0)
 col_max[col_max == 0] = 1
 NORM = RAW / col_max
 
-categories = ["Wyt. właściwa", "Moduł\nYounga", "T_max", "Odp. AO", "Zakres\ntemp."]
+categories = ["Spec.\nStrength", "Young's\nModulus", "T_max", "AO\nResist.", "T\nRange"]
 N = len(categories)
 angles = np.linspace(0, 2 * np.pi, N, endpoint=False).tolist()
 angles += angles[:1]
@@ -540,8 +537,154 @@ for i, (key, name_r) in enumerate(zip(TOP5_KEYS, TOP5_NAMES)):
     ax.fill(angles, vals, alpha=0.08, color=MATS[key]["color"])
 ax.set_thetagrids(np.degrees(angles[:-1]), categories, fontsize=9)
 ax.set_ylim(0, 1)
-ax.set_title("Top-5 materiałów — porównanie radarowe\n(wartości znormalizowane)", pad=20)
+ax.set_title("Top-5 Materials — Radar Comparison\n(normalized values)", pad=20)
 ax.legend(loc="upper right", bbox_to_anchor=(1.3, 1.15), fontsize=8.5)
 savefig(fig, "compare_F_radar_top5.png")
 
-print("\n✓ Wszystkie wykresy wygenerowane pomyślnie.")
+# ════════════════════════════════════════════════════════════════
+# 9.  STYLED SUMMARY TABLE (Table 15.1)
+# ════════════════════════════════════════════════════════════════
+
+def plot_G_table():
+    """Render Table 15.1 as a styled graphic."""
+    headers = [
+        "Material",
+        "UTS\n[MPa]",
+        "E\n[GPa]",
+        "ρ\n[kg/m³]",
+        "T_min\n[°C]",
+        "T_max\n[°C]",
+        "k\n[W/m·K]",
+        "Kᴵᶜ\n[MPa√m]",
+    ]
+
+    mat_keys  = ["M1","M2","M3","M4","M5","M6","M7a","M7b",
+                 "M8","M9","M10","M11","M12","M13"]
+    mat_names = [
+        "M1   Kapton",           "M2   POSS-Polyimide",
+        "M3   Phenolic Resin",   "M4   Phthalonitrile",
+        "M5   RTV Silicone",     "M6   Polysil. Composite",
+        "M7a  Kevlar-29",        "M7b  Kevlar-49",
+        "M8   Mylar BoPET",      "M9   UHMWPE",
+        "M10  PE Composite",     "M11  Kevlar Composite",
+        "M12  Phenolic Composite","M13  Polysil. Compos. II",
+    ]
+    data_rows = [
+        ["231",   "2.50",  "1 420", "−269", "400",    "0.12", "3.5"],
+        ["210",   "2.30",  "1 450", "−269", "450",    "0.15", "2.0"],
+        ["45",    "3.50",  "1 250", "−55",  "2000*",  "0.30", "0.7"],
+        ["65",    "4.00",  "1 250", "−55",  "375",    "0.20", "1.0"],
+        ["6",     "0.003", "1 175", "−115", "300",    "0.25", "—"],
+        ["182",   "45.5",  "1 320", "−60",  "1400*",  "0.21", "2.52"],
+        ["3 600", "70.5",  "1 440", "−196", "430",    "0.04", "—"],
+        ["3 800", "125",   "1 440", "−196", "430",    "0.04", "—"],
+        ["200",   "3.95",  "1 395", "−70",  "150",    "0.15", "3.5"],
+        ["200",   "0.90",  "940",   "−150", "80",     "0.44", "2.0"],
+        ["400",   "30.0",  "1 000", "−150", "120",    "0.35", "—"],
+        ["600",   "40.0",  "1 380", "−55",  "180",    "0.12", "—"],
+        ["350",   "35.0",  "1 550", "−55",  "2000*",  "2.00", "15"],
+        ["150",   "25.0",  "1 450", "−60",  "1200*",  "0.50", "2.0"],
+    ]
+    mat_colors = [MATS[k]["color"] for k in mat_keys]
+
+    n_rows = len(mat_names)
+    n_cols = len(headers)
+
+    fig_w = 16
+    fig_h = 0.45 * n_rows + 1.4
+    fig, ax = plt.subplots(figsize=(fig_w, fig_h))
+    ax.axis("off")
+    fig.patch.set_facecolor("#F5F6FA")
+
+    # Column relative widths (sum = n_cols)
+    col_w = [2.8, 1.0, 1.0, 1.1, 1.0, 1.0, 1.0, 1.1]
+    col_w_norm = [w / sum(col_w) for w in col_w]
+
+    # Row / col geometry in axes units [0,1]
+    header_h = 0.13
+    row_h    = (1.0 - header_h - 0.05) / n_rows
+    y_top    = 0.97
+
+    def draw_cell(ax, x, y, w, h, text, fc, tc="black",
+                  bold=False, fontsize=8.5, va="center", ha="center"):
+        rect = mpatches.FancyBboxPatch(
+            (x + 0.001, y - h + 0.001), w - 0.002, h - 0.002,
+            boxstyle="round,pad=0.01", linewidth=0,
+            facecolor=fc, transform=ax.transAxes, clip_on=False)
+        ax.add_patch(rect)
+        ax.text(x + w / 2, y - h / 2, text,
+                transform=ax.transAxes,
+                fontsize=fontsize, color=tc,
+                fontweight="bold" if bold else "normal",
+                va=va, ha=ha, clip_on=False)
+
+    # ── Draw header row ──────────────────────────────────────────
+    x = 0.0
+    for j, (hdr, cw) in enumerate(zip(headers, col_w_norm)):
+        draw_cell(ax, x, y_top, cw, header_h, hdr,
+                  fc="#2C3E50", tc="white", bold=True, fontsize=8.5)
+        x += cw
+
+    # ── Draw data rows ───────────────────────────────────────────
+    stripe_colors = ["#FFFFFF", "#EEF0F5"]
+    for i, (mname, mcolor, drow) in enumerate(
+            zip(mat_names, mat_colors, data_rows)):
+        y_row = y_top - header_h - i * row_h
+        row_fc = stripe_colors[i % 2]
+
+        x = 0.0
+        # Material name cell
+        draw_cell(ax, x, y_row, col_w_norm[0], row_h, mname,
+                  fc=mcolor, tc="white", bold=True, fontsize=8.0,
+                  ha="left")
+        # Adjust text x slightly for left-aligned name
+        # (redraw with proper x offset)
+        ax.patches[-1].remove()
+        rect = mpatches.FancyBboxPatch(
+            (x + 0.001, y_row - row_h + 0.001),
+            col_w_norm[0] - 0.002, row_h - 0.002,
+            boxstyle="round,pad=0.01", linewidth=0,
+            facecolor=mcolor, transform=ax.transAxes, clip_on=False)
+        ax.add_patch(rect)
+        ax.text(x + 0.008, y_row - row_h / 2, mname,
+                transform=ax.transAxes, fontsize=8.0,
+                color="white", fontweight="bold",
+                va="center", ha="left", clip_on=False)
+        x += col_w_norm[0]
+
+        # Data cells
+        for j, (val, cw) in enumerate(zip(drow, col_w_norm[1:]), 1):
+            is_extreme = (
+                (j == 1 and float(val.replace(" ", "")) >= 3000) or   # high UTS
+                (j == 4 and val.lstrip("-−") != "" and
+                 float(val.replace("−", "-").replace(" ", "")) <= -150) or  # very low T
+                (j == 7 and val not in ("—", "?") and
+                 float(val.replace(" ", "")) >= 10)   # high KIC
+            )
+            cell_fc = row_fc
+            cell_tc = "#1A1A2E"
+            if is_extreme:
+                cell_fc = "#D5F5E3"
+                cell_tc = "#145A32"
+            draw_cell(ax, x, y_row, cw, row_h, val,
+                      fc=cell_fc, tc=cell_tc, fontsize=8.5)
+            x += cw
+
+    # ── Footer note ──────────────────────────────────────────────
+    ax.text(0.01, 0.01,
+            "* T_max for ablative materials = effective ablative protection, "
+            "not continuous structural service",
+            transform=ax.transAxes, fontsize=7, color="#555555",
+            va="bottom", ha="left")
+
+    ax.set_title(
+        "Table 15.1 — Material Properties Summary  (T = 23 °C)",
+        fontsize=12, fontweight="bold", pad=8)
+
+    savefig(fig, "compare_G_table.png")
+
+
+print("\n--- Table 15.1 graphic ---")
+plot_G_table()
+
+print("\nAll plots generated successfully.")
