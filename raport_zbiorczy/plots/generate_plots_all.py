@@ -596,7 +596,7 @@ def plot_G_table():
     ROW_H   = 0.46    # data row height
     HDR_H   = 0.60    # header row height
     PAD_L   = 0.18    # left/right margin
-    PAD_T   = 0.55    # top margin (title space)
+    PAD_T   = 0.15    # top margin
     PAD_B   = 0.30    # bottom margin (footnote)
     STRIPE  = 0.06    # coloured left-stripe width in material column
 
@@ -635,11 +635,6 @@ def plot_G_table():
     # ── Outer border ─────────────────────────────────────────────
     rect(PAD_L, Y_HDR, TABLE_W, HDR_H + N * ROW_H,
          fc="none", ec="#C8CDD5", lw=1.2, zorder=4)
-
-    # ── Title ────────────────────────────────────────────────────
-    txt(PAD_L + TABLE_W / 2, FIG_H - PAD_T / 2,
-        "Table 15.1 — Material Properties Summary  (T = 23 °C)",
-        size=12, bold=True, color="#1A252F")
 
     # ── Header row ───────────────────────────────────────────────
     rect(PAD_L, Y_HDR, TABLE_W, HDR_H, fc="#1A252F")
