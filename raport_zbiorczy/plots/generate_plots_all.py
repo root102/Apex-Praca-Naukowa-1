@@ -546,28 +546,30 @@ savefig(fig, "compare_F_radar_top5.png")
 # ════════════════════════════════════════════════════════════════
 
 def plot_G_table():
-    """Render Table 15.1 as a styled graphic."""
-    headers = [
-        "Material",
-        "UTS\n[MPa]",
-        "E\n[GPa]",
-        "ρ\n[kg/m³]",
-        "T_min\n[°C]",
-        "T_max\n[°C]",
-        "k\n[W/m·K]",
-        "Kᴵᶜ\n[MPa√m]",
-    ]
+    """Render Table 15.1 as a styled graphic using absolute data coordinates."""
+    import matplotlib.patches as mp
+    import matplotlib.patheffects as pe
 
-    mat_keys  = ["M1","M2","M3","M4","M5","M6","M7a","M7b",
-                 "M8","M9","M10","M11","M12","M13"]
-    mat_names = [
-        "M1   Kapton",           "M2   POSS-Polyimide",
-        "M3   Phenolic Resin",   "M4   Phthalonitrile",
-        "M5   RTV Silicone",     "M6   Polysil. Composite",
-        "M7a  Kevlar-29",        "M7b  Kevlar-49",
-        "M8   Mylar BoPET",      "M9   UHMWPE",
-        "M10  PE Composite",     "M11  Kevlar Composite",
-        "M12  Phenolic Composite","M13  Polysil. Compos. II",
+    headers = ["Material", "UTS\n[MPa]", "E\n[GPa]", "ρ\n[kg/m³]",
+               "T_min\n[°C]", "T_max\n[°C]", "k\n[W/m·K]", "K_IC\n[MPa√m]"]
+
+    mat_keys = ["M1","M2","M3","M4","M5","M6","M7a","M7b",
+                "M8","M9","M10","M11","M12","M13"]
+    mat_labels = [          # (code, full name)
+        ("M1",  "Kapton"),
+        ("M2",  "POSS-Polyimide"),
+        ("M3",  "Phenolic Resin"),
+        ("M4",  "Phthalonitrile"),
+        ("M5",  "RTV Silicone"),
+        ("M6",  "Polysil. Composite"),
+        ("M7a", "Kevlar-29"),
+        ("M7b", "Kevlar-49"),
+        ("M8",  "Mylar BoPET"),
+        ("M9",  "UHMWPE"),
+        ("M10", "PE Composite"),
+        ("M11", "Kevlar Composite"),
+        ("M12", "Phenolic Composite"),
+        ("M13", "Polysil. Compos. II"),
     ]
     data_rows = [
         ["231",   "2.50",  "1 420", "−269", "400",    "0.12", "3.5"],
@@ -587,99 +589,138 @@ def plot_G_table():
     ]
     mat_colors = [MATS[k]["color"] for k in mat_keys]
 
-    n_rows = len(mat_names)
-    n_cols = len(headers)
+    N = len(mat_labels)               # 14 rows
 
-    fig_w = 16
-    fig_h = 0.45 * n_rows + 1.4
-    fig, ax = plt.subplots(figsize=(fig_w, fig_h))
+    # ── Layout constants (in inches) ──────────────────────────────
+    COL_W   = [3.4, 1.15, 1.15, 1.25, 1.15, 1.25, 1.15, 1.25]  # 8 cols, ~11.75"
+    ROW_H   = 0.46    # data row height
+    HDR_H   = 0.60    # header row height
+    PAD_L   = 0.18    # left/right margin
+    PAD_T   = 0.55    # top margin (title space)
+    PAD_B   = 0.30    # bottom margin (footnote)
+    STRIPE  = 0.06    # coloured left-stripe width in material column
+
+    FIG_W   = sum(COL_W) + 2 * PAD_L          # total figure width
+    FIG_H   = PAD_T + HDR_H + N * ROW_H + PAD_B
+
+    fig = plt.figure(figsize=(FIG_W, FIG_H), dpi=150)
+    ax  = fig.add_axes([0, 0, 1, 1])
+    ax.set_xlim(0, FIG_W)
+    ax.set_ylim(0, FIG_H)
     ax.axis("off")
-    fig.patch.set_facecolor("#F5F6FA")
+    fig.patch.set_facecolor("white")
 
-    # Column relative widths (sum = n_cols)
-    col_w = [2.8, 1.0, 1.0, 1.1, 1.0, 1.0, 1.0, 1.1]
-    col_w_norm = [w / sum(col_w) for w in col_w]
+    # Cumulative x positions of column left edges
+    xs = [PAD_L]
+    for w in COL_W[:-1]:
+        xs.append(xs[-1] + w)
+    TABLE_W = sum(COL_W)
 
-    # Row / col geometry in axes units [0,1]
-    header_h = 0.13
-    row_h    = (1.0 - header_h - 0.05) / n_rows
-    y_top    = 0.97
+    # y of top of header row
+    Y_HDR = FIG_H - PAD_T - HDR_H
 
-    def draw_cell(ax, x, y, w, h, text, fc, tc="black",
-                  bold=False, fontsize=8.5, va="center", ha="center"):
-        rect = mpatches.FancyBboxPatch(
-            (x + 0.001, y - h + 0.001), w - 0.002, h - 0.002,
-            boxstyle="round,pad=0.01", linewidth=0,
-            facecolor=fc, transform=ax.transAxes, clip_on=False)
-        ax.add_patch(rect)
-        ax.text(x + w / 2, y - h / 2, text,
-                transform=ax.transAxes,
-                fontsize=fontsize, color=tc,
+    # ── Helper functions ─────────────────────────────────────────
+    def rect(x, y, w, h, fc, ec="none", lw=0.5, zorder=1):
+        ax.add_patch(mp.Rectangle((x, y), w, h,
+                                  facecolor=fc, edgecolor=ec,
+                                  linewidth=lw, zorder=zorder))
+
+    def txt(x, y, s, size=9, color="#1A1A2E", bold=False,
+            ha="center", va="center", wrap=False):
+        ax.text(x, y, s, fontsize=size, color=color,
                 fontweight="bold" if bold else "normal",
-                va=va, ha=ha, clip_on=False)
+                ha=ha, va=va, clip_on=False,
+                multialignment="center")
 
-    # ── Draw header row ──────────────────────────────────────────
-    x = 0.0
-    for j, (hdr, cw) in enumerate(zip(headers, col_w_norm)):
-        draw_cell(ax, x, y_top, cw, header_h, hdr,
-                  fc="#2C3E50", tc="white", bold=True, fontsize=8.5)
-        x += cw
+    # ── Outer border ─────────────────────────────────────────────
+    rect(PAD_L, Y_HDR, TABLE_W, HDR_H + N * ROW_H,
+         fc="none", ec="#C8CDD5", lw=1.2, zorder=4)
 
-    # ── Draw data rows ───────────────────────────────────────────
-    stripe_colors = ["#FFFFFF", "#EEF0F5"]
-    for i, (mname, mcolor, drow) in enumerate(
-            zip(mat_names, mat_colors, data_rows)):
-        y_row = y_top - header_h - i * row_h
-        row_fc = stripe_colors[i % 2]
-
-        x = 0.0
-        # Material name cell
-        draw_cell(ax, x, y_row, col_w_norm[0], row_h, mname,
-                  fc=mcolor, tc="white", bold=True, fontsize=8.0,
-                  ha="left")
-        # Adjust text x slightly for left-aligned name
-        # (redraw with proper x offset)
-        ax.patches[-1].remove()
-        rect = mpatches.FancyBboxPatch(
-            (x + 0.001, y_row - row_h + 0.001),
-            col_w_norm[0] - 0.002, row_h - 0.002,
-            boxstyle="round,pad=0.01", linewidth=0,
-            facecolor=mcolor, transform=ax.transAxes, clip_on=False)
-        ax.add_patch(rect)
-        ax.text(x + 0.008, y_row - row_h / 2, mname,
-                transform=ax.transAxes, fontsize=8.0,
-                color="white", fontweight="bold",
-                va="center", ha="left", clip_on=False)
-        x += col_w_norm[0]
-
-        # Data cells
-        for j, (val, cw) in enumerate(zip(drow, col_w_norm[1:]), 1):
-            is_extreme = (
-                (j == 1 and float(val.replace(" ", "")) >= 3000) or   # high UTS
-                (j == 4 and val.lstrip("-−") != "" and
-                 float(val.replace("−", "-").replace(" ", "")) <= -150) or  # very low T
-                (j == 7 and val not in ("—", "?") and
-                 float(val.replace(" ", "")) >= 10)   # high KIC
-            )
-            cell_fc = row_fc
-            cell_tc = "#1A1A2E"
-            if is_extreme:
-                cell_fc = "#D5F5E3"
-                cell_tc = "#145A32"
-            draw_cell(ax, x, y_row, cw, row_h, val,
-                      fc=cell_fc, tc=cell_tc, fontsize=8.5)
-            x += cw
-
-    # ── Footer note ──────────────────────────────────────────────
-    ax.text(0.01, 0.01,
-            "* T_max for ablative materials = effective ablative protection, "
-            "not continuous structural service",
-            transform=ax.transAxes, fontsize=7, color="#555555",
-            va="bottom", ha="left")
-
-    ax.set_title(
+    # ── Title ────────────────────────────────────────────────────
+    txt(PAD_L + TABLE_W / 2, FIG_H - PAD_T / 2,
         "Table 15.1 — Material Properties Summary  (T = 23 °C)",
-        fontsize=12, fontweight="bold", pad=8)
+        size=12, bold=True, color="#1A252F")
+
+    # ── Header row ───────────────────────────────────────────────
+    rect(PAD_L, Y_HDR, TABLE_W, HDR_H, fc="#1A252F")
+    for j, (hdr, x, w) in enumerate(zip(headers, xs, COL_W)):
+        txt(x + w / 2, Y_HDR + HDR_H / 2, hdr,
+            size=9, color="white", bold=True)
+        # vertical dividers in header
+        if j > 0:
+            ax.plot([x, x], [Y_HDR, Y_HDR + HDR_H],
+                    color="white", lw=0.4, alpha=0.35, zorder=3)
+
+    # ── Data rows ────────────────────────────────────────────────
+    STRIPE_COLORS = ["#FFFFFF", "#F2F4F7"]   # alternating row background
+    GRID_COL      = "#DDE0E6"
+    HILIGHT_BG    = "#D4EFDF"
+    HILIGHT_FG    = "#1A6B3C"
+
+    for i, ((code, name), mcolor, drow) in enumerate(
+            zip(mat_labels, mat_colors, data_rows)):
+        y_bot = Y_HDR - (i + 1) * ROW_H        # bottom of this row
+        y_mid = y_bot + ROW_H / 2
+        row_bg = STRIPE_COLORS[i % 2]
+
+        # full-row background
+        rect(PAD_L, y_bot, TABLE_W, ROW_H, fc=row_bg, zorder=1)
+
+        # coloured left stripe in material column
+        rect(xs[0], y_bot, STRIPE, ROW_H, fc=mcolor, zorder=2)
+
+        # material code badge
+        badge_w, badge_h = 0.38, 0.24
+        badge_x = xs[0] + STRIPE + 0.08
+        badge_y = y_mid - badge_h / 2
+        ax.add_patch(mp.FancyBboxPatch(
+            (badge_x, badge_y), badge_w, badge_h,
+            boxstyle="round,pad=0.025",
+            facecolor=mcolor, edgecolor="none", zorder=3))
+        txt(badge_x + badge_w / 2, y_mid, code,
+            size=7.5, color="white", bold=True)
+
+        # material name text
+        txt(badge_x + badge_w + 0.13, y_mid, name,
+            size=9, color="#1A252F", bold=False, ha="left")
+
+        # data cells
+        for j, (val, x, w) in enumerate(zip(drow, xs[1:], COL_W[1:]), 1):
+            # determine highlight
+            try:
+                num = float(val.replace(" ", "").replace("*", "")
+                               .replace("−", "-"))
+                highlight = (
+                    (j == 1 and num >= 3000) or
+                    (j == 4 and num <= -196) or
+                    (j == 7 and num >= 10)
+                )
+            except ValueError:
+                highlight = False
+
+            cell_fc = HILIGHT_BG if highlight else row_bg
+            cell_tc = HILIGHT_FG if highlight else "#1A1A2E"
+            if highlight:
+                rect(x, y_bot, w, ROW_H, fc=cell_fc, zorder=2)
+            txt(x + w / 2, y_mid, val, size=9,
+                color=cell_tc, bold=highlight)
+
+        # horizontal grid line between rows
+        if i < N - 1:
+            ax.plot([PAD_L, PAD_L + TABLE_W],
+                    [y_bot, y_bot],
+                    color=GRID_COL, lw=0.5, zorder=3)
+
+        # vertical dividers (all columns)
+        for j, x in enumerate(xs[1:], 1):
+            ax.plot([x, x], [y_bot, y_bot + ROW_H],
+                    color=GRID_COL, lw=0.5, zorder=3)
+
+    # ── Footnote ─────────────────────────────────────────────────
+    txt(PAD_L, PAD_B / 2,
+        "* T_max for ablative materials = effective ablative protection, "
+        "not continuous structural service.",
+        size=7.5, color="#666666", ha="left")
 
     savefig(fig, "compare_G_table.png")
 
