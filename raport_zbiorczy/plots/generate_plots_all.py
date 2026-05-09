@@ -72,7 +72,7 @@ MATS = {
     "M9":  {"name": "UHMWPE (M9)",                "color": "#27AE60",
              "uts": 200,   "E": 0.90,   "rho": 940,  "k": 0.44,
              "Cp": 1850,   "t_min": -150, "t_max":  80,  "Kic": 2.0},
-    "M10": {"name": "PE Composite (M10)",         "color": "#1E8449",
+    "M10": {"name": "UHMWPE Lam. (M10)",           "color": "#1E8449",
              "uts": 400,   "E": 30.00,  "rho": 1000, "k": 0.35,
              "Cp": 1500,   "t_min": -150, "t_max": 120,  "Kic": None},
     "M11": {"name": "Kevlar Composite (M11)",     "color": "#B7950B",
@@ -416,15 +416,15 @@ plot_M7_D()
 # 8.  COMPARISON PLOTS
 # ════════════════════════════════════════════════════════════════
 
-COMP_KEYS = ["M1","M2","M3","M4","M5","M6","M7a","M7b",
+COMP_KEYS = ["M1","M2","M3","M4","M5","M6","M7b",
              "M8","M9","M10","M11","M12","M13"]
 COMP_LABELS = [
-    "Kapton", "POSS-PI", "Ph-F Resin (M3a)", "Phthalonitrile",
-    "RTV Silicone", "SiO2f/SiO2 Compos.",
-    "Kevlar-29", "Kevlar-49",
-    "Mylar BoPET", "UHMWPE",
-    "PE Composite", "Kevlar Composite",
-    "CF/Phenolic Compos. (M3b)", "CF/Polysilox. Compos."
+    "Kapton (M1)", "POSS-PI (M2)", "Ph-F Resin (M3a)", "Phthalonitrile (M4)",
+    "RTV Silicone (M5)", "SiO2f/SiO2 Comp. (M6)",
+    "Kevlar-49 (M7)",
+    "Mylar BoPET (M8)", "UHMWPE (M9)",
+    "UHMWPE Lam. (M10)", "Kevlar/Epoxy (M11)",
+    "CF/Phenolic Comp. (M3b)", "CF/Polysilox. Comp. (M13)"
 ]
 COMP_COLORS = [MATS[k]["color"] for k in COMP_KEYS]
 COMP_UTS    = [MATS[k]["uts"]   for k in COMP_KEYS]
@@ -474,10 +474,10 @@ savefig(fig, "compare_C_density.png")
 # ── compare_D: Service Temperature Range ───────────────────────
 RANGE_KEYS = ["M1","M2","M3","M4","M5","M6","M7a",
               "M8","M9","M10","M11","M12","M13"]
-RANGE_LBLS = ["Kapton","POSS-PI","Ph-F Resin (M3a)","Phthalonitrile",
-              "RTV Silicone","SiO2f/SiO2 Compos.","Kevlar",
-              "Mylar BoPET","UHMWPE","PE Composite",
-              "Kevlar Composite","CF/Phenolic Compos. (M3b)","CF/Polysilox. Compos."]
+RANGE_LBLS = ["Kapton (M1)","POSS-PI (M2)","Ph-F Resin (M3a)","Phthalonitrile (M4)",
+              "RTV Silicone (M5)","SiO2f/SiO2 Comp. (M6)","Kevlar (M7)",
+              "Mylar BoPET (M8)","UHMWPE (M9)","UHMWPE Lam. (M10)",
+              "Kevlar/Epoxy (M11)","CF/Phenolic Comp. (M3b)","CF/Polysilox. Comp. (M13)"]
 RANGE_COLS = [MATS[k]["color"] for k in RANGE_KEYS]
 T_MINS = [MATS[k]["t_min"] for k in RANGE_KEYS]
 T_MAXS = [MATS[k]["t_max"] for k in RANGE_KEYS]
@@ -525,11 +525,11 @@ col_max[col_max == 0] = 1
 NORM = RAW / col_max
 
 categories = [
-    "Wyt. wlasciwa\n[km2/s2]",
-    "Modul Younga\n[GPa]",
-    "T_max\n[C]",
-    "Odp. na tlen\natomowy (AO)",
-    "Zakres temp.\n[C]"
+    "Specific\nStrength\n[km²/s²]",
+    "Young's\nModulus\n[GPa]",
+    "Max.\nTemp.\n[°C]",
+    "AO Resistance\n(atomic oxygen\n0=none, 1=high)",
+    "Temp.\nRange\n[°C]"
 ]
 N = len(categories)
 angles = np.linspace(0, 2 * np.pi, N, endpoint=False).tolist()
@@ -541,24 +541,24 @@ for i, (key, name_r) in enumerate(zip(TOP5_KEYS, TOP5_NAMES)):
     ax.plot(angles, vals, "o-", lw=2, color=MATS[key]["color"],
             label=name_r.replace("\n", " "))
     ax.fill(angles, vals, alpha=0.08, color=MATS[key]["color"])
-ax.set_thetagrids(np.degrees(angles[:-1]), categories, fontsize=9)
+ax.set_thetagrids(np.degrees(angles[:-1]), categories, fontsize=8.5)
 ax.set_ylim(0, 1)
-ax.set_title("Top-5 materialow - porownanie radarowe\n(wartosci znormalizowane do max = 1.0)", pad=20)
+ax.set_title("Top-5 Materials — Radar Comparison\n(values normalised to max = 1.0)", pad=20)
 
-# legenda materiałów
-legend = ax.legend(loc="upper right", bbox_to_anchor=(1.45, 1.15), fontsize=8.5,
-                   title="Materialy", title_fontsize=9,
-                   framealpha=0.9, edgecolor="#cccccc")
+# material legend — bottom right
+ax.legend(loc="lower right", bbox_to_anchor=(1.45, -0.08), fontsize=8.5,
+          title="Materials", title_fontsize=9,
+          framealpha=0.9, edgecolor="#cccccc")
 
-# objaśnienie osi — pole tekstowe w lewym dolnym rogu
+# axis explanation box — bottom left
 axis_note = (
-    "Osie (wartosci znormalizowane):\n"
-    "  Wyt. wlasciwa  = UTS / gestosc [km2/s2]\n"
-    "  Modul Younga   = E [GPa]\n"
-    "  T_max          = maks. temp. pracy [C]\n"
-    "  Odp. na AO     = odpornosc na tlen\n"
-    "                   atomowy (0=brak, 1=wysoka)\n"
-    "  Zakres temp.   = T_max - T_min [C]"
+    "Axes (normalised to column maximum):\n"
+    "  Specific Strength = UTS / density  [km²/s²]\n"
+    "  Young's Modulus   = E              [GPa]\n"
+    "  Max. Temp.        = max. service T [°C]\n"
+    "  AO Resistance     = atomic-oxygen resistance\n"
+    "                      (score 0–1; 1 = fully passive)\n"
+    "  Temp. Range       = T_max − T_min   [°C]"
 )
 fig.text(0.01, 0.01, axis_note, fontsize=7.5, va="bottom", ha="left",
          family="monospace",
@@ -592,8 +592,8 @@ def plot_G_table():
         ("M7b", "Kevlar-49"),
         ("M8",  "Mylar BoPET"),
         ("M9",  "UHMWPE"),
-        ("M10", "PE Composite"),
-        ("M11", "Kevlar Composite"),
+        ("M10", "UHMWPE Lam."),
+        ("M11", "Kevlar/Epoxy Comp."),
         ("M12", "CF/Phenolic Compos. (M3b)"),
         ("M13", "CF/Polysilox. Compos."),
     ]
