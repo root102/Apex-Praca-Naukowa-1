@@ -545,22 +545,22 @@ ax.set_thetagrids(np.degrees(angles[:-1]), categories, fontsize=8.5)
 ax.set_ylim(0, 1)
 ax.set_title("Top-5 Materials — Radar Comparison\n(values normalised to max = 1.0)", pad=20)
 
-# material legend — bottom right
-ax.legend(loc="lower right", bbox_to_anchor=(1.45, -0.08), fontsize=8.5,
+# material legend — top right
+ax.legend(loc="upper right", bbox_to_anchor=(1.55, 1.12), fontsize=8.5,
           title="Materials", title_fontsize=9,
           framealpha=0.9, edgecolor="#cccccc")
 
-# axis explanation box — bottom left
+# axis explanation box — bottom right
 axis_note = (
-    "Axes (normalised to column maximum):\n"
-    "  Specific Strength = UTS / density  [km²/s²]\n"
-    "  Young's Modulus   = E              [GPa]\n"
-    "  Max. Temp.        = max. service T [°C]\n"
-    "  AO Resistance     = atomic-oxygen resistance\n"
-    "                      (score 0–1; 1 = fully passive)\n"
-    "  Temp. Range       = T_max − T_min   [°C]"
+    "Axes (normalised to max = 1.0):\n"
+    "  Spec. Strength  UTS/ρ  [km²/s²]\n"
+    "  Young's Mod.    E      [GPa]\n"
+    "  Max. Temp.      T_max  [°C]\n"
+    "  AO Resistance   0=none, 1=high\n"
+    "                  (atomic oxygen)\n"
+    "  Temp. Range     T_max−T_min [°C]"
 )
-fig.text(0.01, 0.01, axis_note, fontsize=7.5, va="bottom", ha="left",
+fig.text(0.98, 0.01, axis_note, fontsize=7.5, va="bottom", ha="right",
          family="monospace",
          bbox=dict(boxstyle="round,pad=0.4", facecolor="#F8F9FA",
                    edgecolor="#CCCCCC", alpha=0.95))
