@@ -498,48 +498,73 @@ visualised in the radar chart (Figure~\ref{fig:radar}).
 
 \subsection*{Top-5 Recommended Materials}
 
-\subsubsection*{1. Kapton HN (M1) — Standard LEO Surface Film}
+A LEO spacecraft hull protection system must perform across two fundamentally
+different mission phases: the \textbf{launch phase} (aerodynamic heating up to
+several MW/m$^{2}$, intense acoustic loading during max-Q, and mechanical shock
+at stage separation) and the \textbf{on-orbit phase} (continuous thermal cycling
+between $-150$ and $+150\,^{\circ}$C, atomic oxygen erosion at fluences exceeding
+$10^{20}$\,atoms/cm$^{2}$/year, UV/VUV radiation, and hypervelocity MMOD impacts).
+The five recommended materials address these phases in complementary roles within
+a multi-layer protection architecture.
 
-Kapton's 60-year space heritage, zero creep in vacuum, and service range of
-$-269$ to $+400\,^{\circ}$C make it the default choice for MLI blankets,
-flexible printed circuits, and thermal control surfaces. It is the only material
-in this set with flight-validated performance on every class of spacecraft from
-CubeSats to planetary probes. The AO erosion limitation is well-understood and
-addressed by thin-film coatings (DuPont 2023).
+\subsubsection*{1. Kapton HN (M1) — Primary LEO Surface Film}
 
-\subsubsection*{2. Kevlar-29/49 (M7) — Structural and Impact-Protection Fibre}
+Kapton is the universal outer-surface material for the on-orbit phase. Its
+service range of $-269$ to $+400\,^{\circ}$C covers the full LEO thermal cycling
+envelope with margin, vacuum outgassing is effectively zero, and 60 years of
+flight heritage span every class of spacecraft from CubeSats to planetary probes.
+During launch, Kapton MLI blankets are protected inside the payload fairing and
+are therefore not exposed to aerodynamic heating. The AO erosion rate of
+$3\,\times\,10^{-24}$\,cm$^{3}$/atom is well-characterised and managed by
+vapour-deposited SiO$_{2}$ or Al$_{2}$O$_{3}$ overcoats (DuPont 2023).
 
-Specific strength of 2.5\,km$^{2}$/s$^{2}$ and high energy-absorption capacity
-during hypervelocity impact (via fibre pull-out and fracture) make Kevlar the
-baseline material for Whipple shields, pressure vessels, and load-bearing panels.
-Temperature stability across the full LEO envelope ($-196$ to $+430\,^{\circ}$C)
-and decades of in-service data support its selection (DuPont 2017).
+\subsubsection*{2. Kevlar-29/49 (M7) — MMOD Shield and Structural Layer}
 
-\subsubsection*{3. SiO$_{2}$f/SiO$_{2}$ Polysiloxane Composite (M6) — Ablative-Structural Hybrid}
+Kevlar's specific strength of 2.5\,km$^{2}$/s$^{2}$ and exceptional energy
+absorption during hypervelocity impact — via progressive fibre pull-out and
+fracture — make it the baseline material for Whipple and multi-shock shields
+throughout the on-orbit phase. During launch it serves as the primary structural
+fibre in pressure vessels (propellant tanks, pressurant bottles) and in
+load-bearing interstage elements subjected to max-Q dynamic pressure. Temperature
+stability from $-196$ to $+430\,^{\circ}$C covers both cryogenic propellant
+contact and aerodynamic heating of lightly shielded structural members (DuPont 2017).
 
-M6 is the most versatile material in the set: UTS = 182\,MPa and
-$E$ = 45.5\,GPa provide genuine structural load-bearing capacity alongside
-ablative TPS protection to 1400\,°C. The SiO$_{2}$-rich surface passivates
-against AO without an external coating. This combination makes it suited for
-nozzle liners, re-entry nose-cap segments, and interstage thermal protection
-structures.
+\subsubsection*{3. SiO$_{2}$f/SiO$_{2}$ Polysiloxane Composite (M6) — Launch TPS with On-Orbit AO Passivation}
 
-\subsubsection*{4. Carbon-Fibre/Phenolic Composite (M12) — Primary High-Heat-Load TPS}
+M6 addresses both mission phases simultaneously. During launch its ablative
+SiOC ceramic matrix absorbs aerodynamic heat fluxes up to 1400\,°C through
+controlled pyrolysis, protecting interstage sections and fairing attachment
+rings exposed after separation. On orbit, the SiO$_{2}$-rich surface formed
+during ablation acts as a self-renewing passive barrier against atomic oxygen,
+eliminating the need for a separate AO-protective coating on those surfaces.
+Structural properties (UTS = 182\,MPa, $E$ = 45.5\,GPa) allow M6 to carry
+moderate mechanical loads without a separate load-bearing substructure
+(McDermott et al.\ 2022).
 
-For applications where heat flux exceeds 5\,MW/m$^{2}$ (SRB nozzles, re-entry
-heat shields), the carbon-fibre/phenolic composite has no organic competitor.
-Its $K_{\mathrm{IC}}$ = 15\,MPa$\,\mathrm{m}^{0.5}$ prevents catastrophic crack
-propagation under thermal shock, and $k$ = 2.0\,W/(m$\cdot$K) distributes heat
-laterally in thick TPS assemblies (Tran et al.\ 2014, p.\,1418).
+\subsubsection*{4. Carbon-Fibre/Phenolic Composite (M12) — Primary Launch-Phase TPS}
 
-\subsubsection*{5. POSS-Polyimide (M2) — Next-Generation LEO Surface Film}
+M12 is the first-choice material for surfaces experiencing the most severe
+thermal loads during ascent: nozzle liners, rocket-motor interstage insulation,
+and heat shield panels protecting avionics bays during max-Q. Heat fluxes of
+several MW/m$^{2}$ drive char formation above 300\,°C; the resulting carbon
+layer is thermally stable beyond 2000\,°C and structurally reinforced by carbon
+fibres ($K_{\mathrm{IC}}$ = 15\,MPa$\,\mathrm{m}^{0.5}$), preventing
+catastrophic cracking under acoustic and thermal shock. High in-plane thermal
+conductivity ($k$ = 2.0\,W/(m$\cdot$K)) redistributes heat laterally, reducing
+peak temperatures at attachment points (Tran et al.\ 2014, p.\,1418; Natali
+et al.\ 2012, p.\,180).
 
-POSS-PI surpasses Kapton in AO resistance and upper service temperature
-($+450\,^{\circ}$C vs.\ $+400\,^{\circ}$C), making it the preferred choice for
-long-duration ($>5$-year) LEO missions and any surface where SiO$_{2}$ coating
-deposition is impractical. Currently higher in cost than Kapton, it is deployed
-selectively on highest-priority external surfaces (Brunsvold et al.\ 2004,
-p.\,303).
+\subsubsection*{5. POSS-Polyimide (M2) — Long-Duration LEO Surface Film}
+
+Where mission duration exceeds five years or orbital altitude raises the AO
+fluence above $10^{21}$\,atoms/cm$^{2}$, Kapton's erosion rate becomes
+mission-limiting. POSS-PI replaces or supplements Kapton on the highest-priority
+external surfaces: the polyhedral oligomeric silsesquioxane cages incorporated
+into the polyimide backbone convert under AO attack to a continuous SiO$_{2}$
+passivation layer in-situ, without requiring a pre-applied coating. Upper service
+temperature of $+450\,^{\circ}$C provides an additional $50\,^{\circ}$C margin
+over Kapton during post-separation transient heating (Brunsvold et al.\ 2004,
+p.\,303; Gouzman et al.\ 2010, p.\,2440).
 
 % ────────────────────────────────────────────────────────────
 %  6. CONCLUSIONS
@@ -547,25 +572,30 @@ p.\,303).
 \specialsection{Conclusions}
 
 A systematic comparison of thirteen organic materials for LEO spacecraft hull
-plating and thermal protection has been presented. The principal findings are:
+protection has been conducted, evaluated across the two critical mission phases:
+launch ascent and on-orbit operation. The principal findings are:
 
 \begin{enumerate}[leftmargin=0.63cm, topsep=0pt, itemsep=0pt, parsep=0pt]
-  \item Kevlar fibres (M7a, M7b) are the only materials in the set with specific
-    strength exceeding 2.0\,km$^{2}$/s$^{2}$, making them irreplaceable for
-    mass-critical structural and impact-protection applications.
-  \item Polyimide films (M1, M2) provide the widest continuous service temperature
-    range and the best combination of AO/UV resistance and zero vacuum outgassing,
-    qualifying them as the standard LEO surface material.
-  \item Ablative composites (M3, M6, M12, M13) are essential for launch and re-entry
-    phases where heat fluxes exceed 1\,MW/m$^{2}$; carbon-fibre/phenolic (M12)
-    offers the highest protection capacity and fracture toughness.
-  \item UHMWPE-based materials (M9, M10) offer attractive ballistic performance at
-    low density but are disqualified from external LEO surfaces by their low melt
-    temperature ($\leq$\,135\,°C) and AO susceptibility.
-  \item No single material satisfies all requirements simultaneously. Practical
-    spacecraft designs combine two or more materials from this set — for example,
-    a Kapton MLI blanket over a Kevlar Whipple shield backed by a phenolic ablator
-    — to achieve multi-functional performance across both mission phases.
+  \item No single material satisfies all hull-protection requirements across both
+    mission phases. A multi-layer architecture is necessary: an outer surface film
+    (M1 or M2) for on-orbit AO/UV/thermal control, a MMOD Whipple shield layer
+    (M7), and a launch-phase TPS layer (M12 or M6) on thermally exposed surfaces.
+  \item Ablative composites (M6, M12) are indispensable for the launch phase.
+    Carbon-fibre/phenolic (M12) handles peak heat fluxes at nozzles and interstage
+    sections; SiO$_{2}$f/SiO$_{2}$ polysiloxane (M6) provides ablative protection
+    at moderate fluxes while its post-ablation SiO$_{2}$ surface doubles as an
+    on-orbit AO barrier.
+  \item Kevlar fibres (M7) are the only materials in the set with specific strength
+    exceeding 2.0\,km$^{2}$/s$^{2}$ and cover both phases: MMOD shielding on orbit
+    and structural pressure vessels during launch.
+  \item Polyimide films (M1, M2) are the standard on-orbit external surface material.
+    POSS-PI (M2) is preferred for missions longer than five years or at high AO
+    fluence orbits; Kapton (M1) remains the cost-effective baseline for shorter
+    missions.
+  \item UHMWPE-based materials (M9, M10), despite attractive ballistic performance,
+    are disqualified from external hull roles by their melt temperature
+    ($\leq$\,135\,°C) — incompatible with launch aerodynamic heating — and by AO
+    susceptibility on orbit.
 \end{enumerate}
 
 % ────────────────────────────────────────────────────────────
