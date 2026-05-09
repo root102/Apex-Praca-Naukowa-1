@@ -1,0 +1,683 @@
+% ============================================================
+%  A Comparison of Selected Organic Materials for
+%  Low Orbiting Spacecraft Hull Plating
+%  Compiler: XeLaTeX  (requires Cambria and Times New Roman)
+% ============================================================
+\documentclass[11pt,a4paper]{article}
+
+% ── packages ────────────────────────────────────────────────
+\usepackage{fontspec}
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{caption}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{indentfirst}
+\usepackage{enumitem}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage[english]{babel}
+\usepackage{url}
+
+% ── fonts ────────────────────────────────────────────────────
+\setmainfont{Times New Roman}
+\newfontfamily\cambriafont{Cambria}
+
+% ── page geometry (top 2.5 cm, bottom 7 cm, L/R 4 cm) ──────
+\geometry{
+  a4paper,
+  top    = 2.5cm,
+  bottom = 7.0cm,
+  left   = 4.0cm,
+  right  = 4.0cm
+}
+
+% ── paragraph / line spacing ────────────────────────────────
+\setlength{\parindent}{0.5cm}
+\setlength{\parskip}{0pt}
+\linespread{1.0}
+
+% ── section formatting ───────────────────────────────────────
+% Introduction / main sections: TNR 12pt bold, before 24pt, after 6pt
+\titleformat{\section}[block]
+  {\fontsize{12}{14.4}\selectfont\bfseries}
+  {}{0em}{}
+\titlespacing*{\section}{0pt}{24pt}{6pt}
+
+% Main subheadings: TNR 12pt bold, before 16pt, after 5pt
+\titleformat{\subsection}[block]
+  {\fontsize{12}{14.4}\selectfont\bfseries}
+  {}{0em}{}
+\titlespacing*{\subsection}{0pt}{16pt}{5pt}
+
+% Second-level subheadings: TNR 11pt bold, before 16pt, after 6pt
+\titleformat{\subsubsection}[block]
+  {\fontsize{11}{13.2}\selectfont\bfseries}
+  {}{0em}{}
+\titlespacing*{\subsubsection}{0pt}{16pt}{6pt}
+
+% Summary / References headers: TNR 12pt bold, before 18pt, after 6pt
+\newcommand{\specialsection}[1]{%
+  \vspace{18pt}%
+  {\fontsize{12}{14.4}\selectfont\bfseries #1\par}%
+  \vspace{6pt}%
+}
+
+% ── figure / table captions ──────────────────────────────────
+% Figure caption: 10pt italic bold, below figure, before/after 6pt
+\captionsetup[figure]{
+  labelfont  = {bf,it,footnotesize},
+  textfont   = {bf,it,footnotesize},
+  labelsep   = period,
+  justification = justified,
+  singlelinecheck = false,
+  aboveskip  = 6pt,
+  belowskip  = 6pt
+}
+% Table caption: 10pt italic bold, ABOVE table, before/after 6pt
+\captionsetup[table]{
+  labelfont  = {bf,it,footnotesize},
+  textfont   = {bf,it,footnotesize},
+  labelsep   = period,
+  justification = justified,
+  singlelinecheck = false,
+  aboveskip  = 6pt,
+  belowskip  = 0pt,
+  position   = above
+}
+
+% ── footnotes ────────────────────────────────────────────────
+\renewcommand{\footnotesize}{\fontsize{9}{10.8}\selectfont}
+
+% ── graphics path ────────────────────────────────────────────
+\graphicspath{{../raport_zbiorczy/plots/}}
+
+% ============================================================
+\begin{document}
+\pagestyle{plain}
+
+% ────────────────────────────────────────────────────────────
+%  TITLE BLOCK
+% ────────────────────────────────────────────────────────────
+\begin{center}
+  {\cambriafont\fontsize{14}{16.8}\selectfont\bfseries
+    A Comparison of Selected Organic Materials\\[4pt]
+    for Low Orbiting Spacecraft Hull Plating\par}
+
+  \vspace{12pt}
+
+  {\cambriafont\fontsize{10}{12}\selectfont\bfseries
+    Kalina Banaszek, Magdalena Dzięgiel, Filip Zdrojewski\par}
+
+  \vspace{5pt}
+
+  {\fontsize{9}{10.8}\selectfont
+    AGH University of Krakow\\
+    Faculty of Mechanical Engineering and Robotics\par}
+\end{center}
+
+\vspace{8pt}
+
+% ────────────────────────────────────────────────────────────
+%  ABSTRACT (English)
+% ────────────────────────────────────────────────────────────
+\begingroup
+  \setlength{\leftskip}{0.75cm}
+  \setlength{\rightskip}{0.75cm}
+  \fontsize{9}{10.8}\selectfont\noindent
+  \textbf{Abstract:}
+  Spacecraft operating in low Earth orbit (LEO) and during the launch phase are
+  exposed to simultaneous extreme threats: atomic oxygen~(AO) erosion, ultraviolet
+  radiation, thermal cycling between $-150\,^{\circ}$C and $+150\,^{\circ}$C,
+  micrometeoroid and orbital debris~(MMOD) impacts, and heat fluxes of
+  1--10\,MW/m$^{2}$ during ascent. The selection of hull plating and thermal
+  protection system (TPS) materials requires balancing low areal density, high
+  structural strength, thermal stability, and surface durability.
+  This paper presents a systematic comparison of thirteen organic materials
+  (M1--M13) covering polyimide films, thermoset resins, elastomers, aramid
+  fibres, and advanced composites. Mechanical and thermal properties at room
+  temperature and as a function of temperature were compiled from manufacturer
+  datasheets and peer-reviewed literature. Comparison charts and a five-criterion
+  scoring methodology identify the top five candidate materials: Kapton~HN~(M1)
+  and POSS-polyimide~(M2) for LEO surface films; Kevlar-29/49~(M7) for
+  structural and Whipple-shield applications; carbon-fibre/phenolic
+  composite~(M12) for high-heat-load TPS; and polysiloxane composite~(M6) as
+  a versatile ablative-structural hybrid.
+  \par\vspace{4pt}
+  \noindent\textbf{Keywords:}
+  ablative materials, atomic oxygen, aramid fibres, Kapton, Kevlar,
+  low Earth orbit, organic composites, polyimide,
+  spacecraft, thermal protection system
+\endgroup
+
+\vspace{10pt}
+
+% ────────────────────────────────────────────────────────────
+%  1. INTRODUCTION
+% ────────────────────────────────────────────────────────────
+\section*{Introduction}
+
+The protective plating of a spacecraft must satisfy radically different
+requirements during two successive mission phases. During launch and ascent, the
+vehicle is exposed to aerodynamic heat fluxes reaching 1--10\,MW/m$^{2}$,
+acoustic loads up to 160\,dB, and structural accelerations of 5--12\,$g$
+(Natali et al.\ 2012, p.\,1). Once in low Earth orbit at altitudes of 160--2000\,km,
+the dominant threats change to atomic oxygen at fluences of
+$10^{20}$--$10^{21}$\,atoms/cm$^{2}$ per year, vacuum-ultraviolet radiation, and
+thermal cycling between $-150\,^{\circ}$C and $+150\,^{\circ}$C with a period
+of approximately 90\,minutes (Gouzman et al.\ 2010, p.\,2438).
+
+Organic materials occupy a strategic position in spacecraft design because
+they can be tailored through polymer chemistry and fibre reinforcement to address
+several of these requirements simultaneously at low areal density. Polyimide films
+provide radiation resistance, dimensional stability, and a wide service
+temperature range, making them the standard material for multi-layer insulation
+(MLI) blankets. Aramid fibres deliver specific tensile strengths exceeding
+2.0\,km$^{2}$/s$^{2}$, enabling lightweight Whipple shields and pressure vessels.
+Ablative composites pyrolyse controllably, consuming heat through endothermic
+reactions and leaving a protective char layer.
+
+This paper compiles and analyses the key mechanical and thermal properties of
+thirteen organic materials selected on the basis of current or prospective use in
+spacecraft hulls and TPS. Materials are labelled M1--M13. The objective is to
+provide a single reference document that facilitates rational material selection
+for specific sub-systems, supported by temperature-dependent data covering the
+full LEO thermal envelope.
+
+% ────────────────────────────────────────────────────────────
+%  2. ENVIRONMENTAL CONDITIONS
+% ────────────────────────────────────────────────────────────
+\section*{Environmental Conditions}
+
+The design envelope for spacecraft hull materials is defined by two overlapping
+phases summarised in Table~1.
+
+\begin{table}[h!]
+\centering
+\caption{\textit{Design conditions for spacecraft hull materials during launch
+  and LEO service.}}
+\label{tab:environments}
+\vspace{4pt}
+\begin{tabular}{p{2.2cm} p{3.8cm} p{4.5cm}}
+\toprule
+\textbf{Phase} & \textbf{Primary threats} & \textbf{Key material requirements} \\
+\midrule
+Launch / ascent
+  & Heat flux 1--10\,MW/m$^{2}$;\newline vibration; acceleration 5--12\,$g$
+  & Ablation / TPS;\newline high mechanical strength;\newline low areal density \\
+\addlinespace[4pt]
+LEO (orbit)
+  & AO $10^{20}$--$10^{21}$\,at/cm$^{2}$/yr; UV; thermal cycling
+    $-150$ to $+150\,^{\circ}$C; MMOD
+  & AO/UV resistance;\newline dimensional stability;\newline $K_{\mathrm{IC}} > 1\,\mathrm{MPa\,m}^{0.5}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Atomic oxygen is the dominant chemical threat below 600\,km altitude. It erodes
+most organic polymers at rates of $10^{-24}$--$10^{-23}$\,cm$^{3}$/atom.
+Kapton erodes at approximately $3 \times 10^{-24}$\,cm$^{3}$/atom; aliphatic
+polymers such as UHMWPE erode 3--5 times faster due to the absence of aromatic
+rings in the backbone. POSS-modified polyimides and polysiloxane composites
+benefit from passive self-passivation: AO oxidises surface silicon atoms to
+SiO$_{2}$, forming a self-healing ceramic barrier (Gouzman et al.\ 2010, p.\,2440).
+
+Thermal cycling introduces cyclic mechanical strains proportional to the
+coefficient of thermal expansion (CTE) mismatch between bonded layers. For a
+polymer film adhered to a metallic structure, strains per cycle can reach
+0.1--0.5\%, requiring high fatigue resistance and fracture toughness.
+
+% ────────────────────────────────────────────────────────────
+%  3. MATERIALS
+% ────────────────────────────────────────────────────────────
+\section*{Materials}
+
+\subsection*{Polyimide Films}
+
+\textbf{Kapton HN (M1)} is a poly(4,4$'$-oxydiphenylene-pyromellitimide) film
+produced by DuPont and used on spacecraft since the Apollo programme. Its room-temperature
+tensile strength (UTS) of 231\,MPa at a density of 1420\,kg/m$^{3}$ gives a
+specific strength of 163\,kN$\cdot$m/kg. Young's modulus is 2.5\,GPa and
+fracture toughness is 1.65--5.4\,MPa$\,\mathrm{m}^{0.5}$ depending on film
+thickness and orientation (DuPont 2023). The continuous service range of
+$-269$ to $+400\,^{\circ}$C covers both cryogenic propellant tanks and
+aerodynamic heating. Thermal conductivity is 0.12\,W/(m$\cdot$K). The principal
+LEO limitation is AO erosion, which requires a protective SiO$_{2}$ or Al
+coating on sun-facing surfaces.
+
+\textbf{POSS-Polyimide (M2)} incorporates polyhedral oligomeric silsesquioxane
+(POSS) nanocages into the polyimide backbone. AO oxidises the surface Si atoms
+to SiO$_{2}$, forming a self-passivating ceramic layer that suppresses further
+erosion — the key advantage over Kapton for long-duration LEO missions. UTS is
+approximately 210\,MPa, $E = 2.3\,\mathrm{GPa}$, and operating range is
+$-269$ to $+450\,^{\circ}$C (Brunsvold et al.\ 2004, p.\,303;
+Gouzman et al.\ 2010, p.\,2439).
+
+\subsection*{Thermoset Resins}
+
+\textbf{Phenolic Resin (M3)} — phenol-formaldehyde thermosetting resins have been
+the matrix material of choice for ablative TPS since the 1960s. Neat resin has
+UTS = 45\,MPa, $E$ = 3.5\,GPa, and a brittle failure mode (elongation~1\%). At
+temperatures above 300\,°C the resin pyrolyses, forming a porous char with
+approximately 55\% carbon yield, which insulates the underlying structure. The
+maximum effective ablative protection temperature exceeds 2000\,°C
+(Natali et al.\ 2012, p.\,3). Density is 1250\,kg/m$^{3}$.
+
+\textbf{Phthalonitrile Resin (M4)} represents the next generation of
+high-temperature thermosets. Cure proceeds without volatile byproducts,
+yielding void-free, low-outgassing parts — a critical requirement near spacecraft
+optics and sensors. The glass transition temperature $T_{\mathrm{g}}$ exceeds
+375\,°C, the highest continuous service temperature of any unreinforced polymer
+in this study. UTS = 65\,MPa, $E$ = 4.0\,GPa; char yield is approximately 65\%
+(Hergenrother et al.\ 2005, p.\,7853; Laskoski et al.\ 2006, p.\,4559).
+
+\subsection*{Elastomers and Composite Films}
+
+\textbf{RTV Silicone (M5)} — room-temperature-vulcanising polydimethylsiloxane
+elastomers (e.g.\ Momentive RTV566) are used as structural adhesives, sealants,
+and vibration dampers in satellite assemblies. UTS is only 6\,MPa but elongation
+reaches 400\%, giving a uniquely hyperelastic stress--strain response. The
+service range is $-115$ to $+300\,^{\circ}$C; at cryogenic temperatures Young's
+modulus rises sharply from 3\,MPa at room temperature to approximately
+2000\,MPa at $-115\,^{\circ}$C (Barucci et al.\ 1998, p.\,3).
+
+\textbf{Polysiloxane Composite (M6)} — 2.5D SiO$_{2}$-fibre/SiO$_{2}$-matrix
+composites (McDermott et al.\ 2022) combine ablative performance with structural
+integrity. A char yield of 86.5\% and the formation of an SiOC ceramic matrix
+maintain structural function at temperatures above 1400\,°C. Room-temperature
+properties: UTS = 182\,MPa, $E$ = 45.5\,GPa, density = 1320\,kg/m$^{3}$,
+$K_{\mathrm{IC}}$ = 2.52\,MPa$\,\mathrm{m}^{0.5}$. AO resistance is inherently
+high due to the silica-rich surface.
+
+\subsection*{Aramid Fibres}
+
+\textbf{Kevlar (M7)} — DuPont's para-aramid fibres are produced in two principal
+grades. \textit{Kevlar-29}~(M7a): UTS = 3600\,MPa, $E$ = 70.5\,GPa, elongation
+3.6\%. \textit{Kevlar-49}~(M7b): UTS = 3800\,MPa, $E$ = 125\,GPa, elongation
+2.4\%. Both grades have density 1440\,kg/m$^{3}$ and retain more than 75\% of
+room-temperature UTS across the range $-196$ to $+430\,^{\circ}$C (DuPont 2017).
+Thermal conductivity is exceptionally low at 0.04\,W/(m$\cdot$K), dropping to
+0.007\,W/(m$\cdot$K) at 7\,K (Ventura \& Martelli 2009, p.\,735). Kevlar-29 is
+preferred for Whipple shields and pressure vessels where energy absorption governs;
+Kevlar-49 for stiffness-critical structures such as optical benches.
+
+\subsection*{PET Film}
+
+\textbf{Mylar BoPET (M8)} — biaxially oriented poly(ethylene terephthalate) film
+from DuPont Teijin Films is the standard reflective layer in MLI blankets,
+typically aluminised on one or both sides. UTS = 200\,MPa, $E$ = 3.95\,GPa,
+density = 1395\,kg/m$^{3}$, $K_{\mathrm{IC}}$ = 3.5\,MPa$\,\mathrm{m}^{0.5}$.
+The glass transition at $T_{\mathrm{g}} \approx 80\,^{\circ}$C causes UTS to
+fall sharply above this temperature, restricting structural service to the range
+$-70$ to $+150\,^{\circ}$C (DuPont Teijin Films 2021).
+
+\subsection*{Ultra-High-Molecular-Weight Polyethylene and Composites}
+
+\textbf{UHMWPE (M9)} — with a molecular weight of 3.5--7.5$\,\times\,10^{6}$\,g/mol
+and a density of 940\,kg/m$^{3}$, UHMWPE is the lightest material in this set
+and the only one less dense than water. Its ballistic performance at room
+temperature rivals that of Kevlar. The critical limitation is a melt temperature
+of 135\,°C; UTS drops to approximately 50\,MPa at 80\,°C. The aliphatic backbone
+offers no AO resistance (Kurtz 2009, p.\,23; Sobieraj \& Rimnac 2009, p.\,433).
+
+\textbf{PE Composite (M10)} — UHMWPE-fibre laminates (Dyneema SK75/SK76,
+Spectra~1000) in an epoxy or HDPE matrix reach UTS = 400\,MPa and
+$E$ = 30\,GPa at a density of 1000\,kg/m$^{3}$. The service temperature is
+limited to approximately 120\,°C by the matrix (Koh et al.\ 2010, p.\,2234).
+
+\subsection*{Advanced Structural Composites}
+
+\textbf{Kevlar/Epoxy Composite (M11)} — woven Kevlar-49 fabric in Hexcel 8552
+epoxy resin (fibre volume fraction $\approx$\,60\%) achieves UTS = 600\,MPa,
+$E$ = 40\,GPa, density = 1380\,kg/m$^{3}$. UTS is thermally stable from
+$-55$ to $+180\,^{\circ}$C. Used for pressure vessels, primary load-bearing
+panels, and satellite structural frames (Duan et al.\ 2006, p.\,441).
+
+\textbf{Carbon-Fibre/Phenolic Composite (M12)} — carbon-fibre-reinforced phenolic
+composites constitute the primary ablative TPS for solid-rocket-booster (SRB)
+nozzles and high-heat-load atmospheric re-entry vehicles. Carbon-fibre
+reinforcement raises UTS to 350\,MPa and $E$ to 35\,GPa compared to neat
+phenolic resin. The char layer above 2000\,°C is extremely stable. Thermal
+conductivity $k = 2.0\,\mathrm{W/(m\cdot K)}$ — the highest of all thirteen
+materials — facilitates heat redistribution in thick TPS stacks.
+$K_{\mathrm{IC}}$ = 15\,MPa$\,\mathrm{m}^{0.5}$ is also the highest in the set
+(Natali et al.\ 2012, p.\,5; Tran et al.\ 2014, p.\,1418).
+
+\textbf{Polysiloxane Composite~II (M13)} — a second class of polysiloxane-matrix
+composites with ceramic-fibre reinforcement achieves UTS = 150\,MPa,
+$E$ = 25\,GPa, density = 1450\,kg/m$^{3}$, and effective ablative protection
+to 1200\,°C (McDermott et al.\ 2022, p.\,9).
+
+% ────────────────────────────────────────────────────────────
+%  4. RESULTS AND DISCUSSION
+% ────────────────────────────────────────────────────────────
+\section*{Results and Discussion}
+
+\subsection*{Summary of Room-Temperature Properties}
+
+A summary of all key room-temperature properties for M1--M13 is given in
+Figure~\ref{fig:table_summary}. The data span four orders of magnitude in UTS
+(6--3800\,MPa), six orders of magnitude in Young's modulus
+($0.003$--125\,GPa), and more than two orders of magnitude in specific
+strength.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\linewidth]{compare_G_table.png}
+  \caption{\textit{Room-temperature material properties for M1--M13.
+    Green cells denote top-performance values: UTS\,$\geq$\,3000\,MPa,
+    $T_{\mathrm{min}}$\,$\leq$\,$-$196\,°C, $K_{\mathrm{IC}}$\,$\geq$\,10\,MPa$\sqrt{\mathrm{m}}$.
+    Asterisk denotes effective ablative service temperature, not continuous
+    structural service.}}
+  \label{fig:table_summary}
+\end{figure}
+
+\subsection*{Tensile Strength}
+
+The UTS comparison in Figure~\ref{fig:uts} is plotted on a logarithmic scale
+because the data span four decades. Kevlar fibres (M7a, M7b) are dominant at
+3600--3800\,MPa — more than six times the UTS of the next structural composite
+(Kevlar/epoxy M11, 600\,MPa). At the lower end, the neat thermoset resins M3
+and M4 record 45--65\,MPa, and the RTV elastomer M5 only 6\,MPa.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\linewidth]{compare_A_uts.png}
+  \caption{\textit{Tensile strength (UTS) comparison of M1--M13, logarithmic scale.}}
+  \label{fig:uts}
+\end{figure}
+
+\subsection*{Young's Modulus and Stiffness}
+
+The stiffness hierarchy (Figure~\ref{fig:modulus}) follows a similar pattern.
+Kevlar-49 (M7b, 125\,GPa) is the stiffest organic material known, approaching
+the modulus of aluminium alloys at one-third the density. Polysiloxane composite
+(M6, 45.5\,GPa) and Kevlar/epoxy (M11, 40\,GPa) represent practical laminate
+options when stiffness-to-weight ratio governs the design. RTV silicone (M5,
+0.003\,GPa) is six orders of magnitude more compliant — its role is vibration
+damping and sealing, not structural load bearing.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\linewidth]{compare_B_modulus.png}
+  \caption{\textit{Young's modulus comparison of M1--M13, logarithmic scale.}}
+  \label{fig:modulus}
+\end{figure}
+
+\subsection*{Density and Specific Strength}
+
+Figure~\ref{fig:density} shows densities ranging from 940\,kg/m$^{3}$ (UHMWPE, M9)
+to 1550\,kg/m$^{3}$ (phenolic composite, M12). The narrow density range is a
+characteristic of organic materials and contrasts sharply with metals
+(2700--8900\,kg/m$^{3}$).
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\linewidth]{compare_C_density.png}
+  \caption{\textit{Density comparison of M1--M13.
+    UHMWPE (M9) is the only material with density below that of water.}}
+  \label{fig:density}
+\end{figure}
+
+Specific strength (Figure~\ref{fig:specstrength}) reveals the true competitive
+advantage of Kevlar: at 2.5\,km$^{2}$/s$^{2}$, it exceeds carbon-fibre/phenolic
+composite (M12) by a factor of seven and polyimide film (M1) by a factor of
+fifteen. For mass-critical structural applications, Kevlar fibres have no organic
+competitor.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\linewidth]{compare_E_spec_strength.png}
+  \caption{\textit{Specific strength (UTS/$\rho$) comparison of M1--M13.}}
+  \label{fig:specstrength}
+\end{figure}
+
+\subsection*{Service Temperature Range}
+
+Figure~\ref{fig:temprange} presents service temperature ranges. Ablative
+materials (M3, M6, M12, M13) cover the widest thermal envelopes, with effective
+protection extending above 1000\,°C via char or SiOC-ceramic formation.
+Kapton (M1) and POSS-PI (M2) cover the widest continuous service range
+($-269$ to $+400/450\,^{\circ}$C), encompassing both the cryogenic propellant
+temperature and the aerodynamic heating regime. The LEO thermal cycling envelope
+of $-150$ to $+150\,^{\circ}$C is covered by all materials except UHMWPE
+(limited to $+80\,^{\circ}$C), which is therefore unsuitable for external LEO
+surfaces.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\linewidth]{compare_D_temp_range.png}
+  \caption{\textit{Service temperature range of M1--M13.
+    Dotted lines mark the LEO thermal envelope ($-150$ to $+150$\,°C).}}
+  \label{fig:temprange}
+\end{figure}
+
+% ────────────────────────────────────────────────────────────
+%  5. MATERIAL SELECTION
+% ────────────────────────────────────────────────────────────
+\section*{Material Selection for Spacecraft Applications}
+
+\subsection*{Scoring Methodology}
+
+Five criteria are used to score each material for combined launch-phase and
+LEO service. Weights reflect the relative severity of each threat in a typical
+LEO mission:
+
+\begin{itemize}[leftmargin=0.63cm, topsep=0pt, itemsep=0pt, parsep=0pt]
+  \item Specific strength UTS/$\rho$ \dotfill 25\%
+  \item Service temperature range $T_{\mathrm{max}} - T_{\mathrm{min}}$ \dotfill 20\%
+  \item Resistance to atomic oxygen and UV radiation \dotfill 20\%
+  \item Heat absorption / ablative capacity \dotfill 20\%
+  \item Fracture toughness $K_{\mathrm{IC}}$ / impact resistance \dotfill 15\%
+\end{itemize}
+
+Each criterion is normalised to the interval $[0, 1]$ across all thirteen
+materials and multiplied by the criterion weight. The resulting scores are
+visualised in the radar chart (Figure~\ref{fig:radar}).
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.80\linewidth]{compare_F_radar_top5.png}
+  \caption{\textit{Multi-criteria radar comparison of the Top-5 candidate
+    materials (normalised values, $\mathrm{max} = 1.0$).}}
+  \label{fig:radar}
+\end{figure}
+
+\subsection*{Top-5 Recommended Materials}
+
+\subsubsection*{1. Kapton HN (M1) — Standard LEO Surface Film}
+
+Kapton's 60-year space heritage, zero creep in vacuum, and service range of
+$-269$ to $+400\,^{\circ}$C make it the default choice for MLI blankets,
+flexible printed circuits, and thermal control surfaces. It is the only material
+in this set with flight-validated performance on every class of spacecraft from
+CubeSats to planetary probes. The AO erosion limitation is well-understood and
+addressed by thin-film coatings (DuPont 2023).
+
+\subsubsection*{2. Kevlar-29/49 (M7) — Structural and Impact-Protection Fibre}
+
+Specific strength of 2.5\,km$^{2}$/s$^{2}$ and high energy-absorption capacity
+during hypervelocity impact (via fibre pull-out and fracture) make Kevlar the
+baseline material for Whipple shields, pressure vessels, and load-bearing panels.
+Temperature stability across the full LEO envelope ($-196$ to $+430\,^{\circ}$C)
+and decades of in-service data support its selection (DuPont 2017).
+
+\subsubsection*{3. Polysiloxane Composite (M6) — Ablative-Structural Hybrid}
+
+M6 is the most versatile material in the set: UTS = 182\,MPa and
+$E$ = 45.5\,GPa provide genuine structural load-bearing capacity alongside
+ablative TPS protection to 1400\,°C. The SiO$_{2}$-rich surface passivates
+against AO without an external coating. This combination makes it suited for
+nozzle liners, re-entry nose-cap segments, and interstage thermal protection
+structures.
+
+\subsubsection*{4. Carbon-Fibre/Phenolic Composite (M12) — Primary High-Heat-Load TPS}
+
+For applications where heat flux exceeds 5\,MW/m$^{2}$ (SRB nozzles, re-entry
+heat shields), the carbon-fibre/phenolic composite has no organic competitor.
+Its $K_{\mathrm{IC}}$ = 15\,MPa$\,\mathrm{m}^{0.5}$ prevents catastrophic crack
+propagation under thermal shock, and $k$ = 2.0\,W/(m$\cdot$K) distributes heat
+laterally in thick TPS assemblies (Tran et al.\ 2014, p.\,1418).
+
+\subsubsection*{5. POSS-Polyimide (M2) — Next-Generation LEO Surface Film}
+
+POSS-PI surpasses Kapton in AO resistance and upper service temperature
+($+450\,^{\circ}$C vs.\ $+400\,^{\circ}$C), making it the preferred choice for
+long-duration ($>5$-year) LEO missions and any surface where SiO$_{2}$ coating
+deposition is impractical. Currently higher in cost than Kapton, it is deployed
+selectively on highest-priority external surfaces (Brunsvold et al.\ 2004,
+p.\,303).
+
+% ────────────────────────────────────────────────────────────
+%  6. CONCLUSIONS
+% ────────────────────────────────────────────────────────────
+\specialsection{Conclusions}
+
+A systematic comparison of thirteen organic materials for LEO spacecraft hull
+plating and thermal protection has been presented. The principal findings are:
+
+\begin{enumerate}[leftmargin=0.63cm, topsep=0pt, itemsep=0pt, parsep=0pt]
+  \item Kevlar fibres (M7a, M7b) are the only materials in the set with specific
+    strength exceeding 2.0\,km$^{2}$/s$^{2}$, making them irreplaceable for
+    mass-critical structural and impact-protection applications.
+  \item Polyimide films (M1, M2) provide the widest continuous service temperature
+    range and the best combination of AO/UV resistance and zero vacuum outgassing,
+    qualifying them as the standard LEO surface material.
+  \item Ablative composites (M3, M6, M12, M13) are essential for launch and re-entry
+    phases where heat fluxes exceed 1\,MW/m$^{2}$; carbon-fibre/phenolic (M12)
+    offers the highest protection capacity and fracture toughness.
+  \item UHMWPE-based materials (M9, M10) offer attractive ballistic performance at
+    low density but are disqualified from external LEO surfaces by their low melt
+    temperature ($\leq$\,135\,°C) and AO susceptibility.
+  \item No single material satisfies all requirements simultaneously. Practical
+    spacecraft designs combine two or more materials from this set — for example,
+    a Kapton MLI blanket over a Kevlar Whipple shield backed by a phenolic ablator
+    — to achieve multi-functional performance across both mission phases.
+\end{enumerate}
+
+% ────────────────────────────────────────────────────────────
+%  REFERENCES
+% ────────────────────────────────────────────────────────────
+\specialsection{References}
+
+{\fontsize{9.5}{11.4}\selectfont
+\begin{enumerate}[label=\arabic*., leftmargin=1.5cm, topsep=0pt,
+                  itemsep=0pt, parsep=0pt]
+
+  \item Barucci M., Bianchini G., Gottardi E.\ et al.\ (1998), \textit{Low
+    Temperature Thermal Properties of Some Filled Silicone Rubbers},
+    ``Cryogenics'', 38, 5, pp.\ 3--6. DOI:~10.1016/S0011-2275(97)00111-3
+
+  \item Brunsvold A.L., Minton T.K., Gouzman I.\ et al.\ (2004), \textit{An
+    Investigation of the Resistance of POSS Polyimide to Atomic Oxygen Attack},
+    ``High Performance Polymers'', 16, 2, pp.\ 303--318.
+    DOI:~10.1177/0954008304024680
+
+  \item Duan Y., Keefe M., Bogetti T.A.\ et al.\ (2006), \textit{Modeling the
+    Role of Friction in the Ballistic Performance of a Plain-Weave Kevlar KM2
+    Fabric}, ``International Journal of Impact Engineering'', 32, pp.\ 441--467.
+    DOI:~10.1016/j.ijimpeng.2005.07.007
+
+  \item DuPont (2017), \textit{Kevlar Technical Guide}, \url{https://www.dupont.com}
+    (accessed: 05.05.2026)
+
+  \item DuPont (2023), \textit{Kapton HN — General Specifications Datasheet},
+    \url{https://www.dupont.com} (accessed: 05.05.2026)
+
+  \item DuPont Teijin Films (2021), \textit{Mylar A Polyester Film — Datasheet},
+    \url{https://www.dupont.com} (accessed: 05.05.2026)
+
+  \item Gouzman I., Grossman E., Verker R.\ et al.\ (2010), \textit{Advances in
+    Polyimide-Based Materials for Space Applications}, ``Advanced Materials'',
+    22, pp.\ 2436--2445. DOI:~10.1002/adma.200903503
+
+  \item Hergenrother P.M., Smith J.G., Connell J.W.\ et al.\ (2005),
+    \textit{Phthalonitrile Resin for High-Temperature Polymer Matrix Composites},
+    ``Polymer'', 46, pp.\ 7851--7861. DOI:~10.1016/j.polymer.2005.09.039
+
+  \item Koh C.P., Shim V.P.W., Tan V.B.C.\ (2010), \textit{Response of a
+    Reinforced UHMWPE Plate to Hypervelocity Impact}, ``International Journal of
+    Impact Engineering'', 37, pp.\ 2234--2245. DOI:~10.1016/j.ijimpeng.2009.11.010
+
+  \item Kurtz S.M.\ (ed.) (2009), \textit{UHMWPE Biomaterials Handbook}, 2nd ed.,
+    Elsevier, Oxford. DOI:~10.1016/B978-0-12-374721-1.00002-7
+
+  \item Laskoski M., Dominguez D.D., Keller T.M.\ (2006), \textit{Synthesis and
+    Properties of a Liquid Phthalonitrile Resin}, ``Journal of Polymer Science
+    Part A'', 44, pp.\ 4559--4565. DOI:~10.1002/pola.21358
+
+  \item McDermott M.T., Rickard I., Grunenfelder L.K.\ (2022), \textit{High-Temperature
+    Mechanical Behaviour of 2.5D~SiO$_{2}$/SiO$_{2}$ Composites}, ``Journal of
+    Composite Materials'', 56, pp.\ 3201--3215. DOI:~10.1177/00219983211038622
+
+  \item Natali M., Kenny J.M., Torre L.\ (2012), \textit{Science and Technology of
+    Polymeric Ablative Materials for Thermal Protection Systems and Propulsion
+    Devices}, ``Progress in Polymer Science'', 37, pp.\ 174--190.
+    DOI:~10.1016/j.progpolymsci.2011.08.002
+
+  \item Sobieraj M.C., Rimnac C.M.\ (2009), \textit{Ultra High Molecular Weight
+    Polyethylene: Mechanics, Morphology, and Clinical Behaviour}, ``Journal of
+    the Mechanical Behaviour of Biomedical Materials'', 2, pp.\ 433--443.
+    DOI:~10.1016/j.jmbbm.2008.07.002
+
+  \item Tran H., Johnson C., Rasky D.\ et al.\ (2014), \textit{Phenolic Impregnated
+    Carbon Ablator (PICA) as Thermal Protection Systems for Discovery Missions},
+    ``Journal of Spacecraft and Rockets'', 51, pp.\ 1418--1428.
+    DOI:~10.2514/1.T4165
+
+  \item Ventura G., Martelli V.\ (2009), \textit{Thermal Conductivity of Kevlar~49
+    Between 7 and 290\,K}, ``Cryogenics'', 49, pp.\ 735--737.
+    DOI:~10.1016/j.cryogenics.2009.04.001
+
+\end{enumerate}
+}
+
+% ────────────────────────────────────────────────────────────
+%  POLISH TITLE + STRESZCZENIE  (required for English-language texts)
+% ────────────────────────────────────────────────────────────
+\vspace{18pt}
+\begin{center}
+  {\cambriafont\fontsize{11}{13.2}\selectfont\bfseries
+    Porównanie wybranych materiałów organicznych stosowanych\\
+    jako poszycie kadłuba statku kosmicznego\\
+    na niskiej orbicie okołoziemskiej\par}
+\end{center}
+
+\vspace{6pt}
+
+\begingroup
+  \setlength{\leftskip}{0.75cm}
+  \setlength{\rightskip}{0.75cm}
+  \fontsize{9}{10.8}\selectfont\noindent
+  \textbf{Streszczenie:}
+  Statki kosmiczne operujące na niskiej orbicie okołoziemskiej (LEO) oraz podczas
+  startu narażone są na jednoczesne ekstremalne zagrożenia: erozję wywołaną
+  atomowym tlenem (AO), promieniowanie ultrafioletowe, cykle termiczne w zakresie
+  od $-150\,^{\circ}$C do $+150\,^{\circ}$C, uderzenia mikrometeorytów
+  i szczątków orbitalnych, a podczas wznoszenia — strumienie ciepła
+  1--10\,MW/m$^{2}$. Dobór materiałów poszycia i systemów ochrony termicznej
+  wymaga kompromisu między niską gęstością powierzchniową, wytrzymałością
+  mechaniczną, stabilnością termiczną i trwałością powierzchniową.
+  W artykule przedstawiono systematyczne porównanie trzynastu materiałów
+  organicznych (M1--M13) obejmujących folie poliimidowe, żywice termoutwardzalne,
+  elastomery, włókna aramidowe oraz zaawansowane kompozyty. Właściwości
+  mechaniczne i termiczne zestawiono na podstawie kart katalogowych producentów
+  i recenzowanych publikacji naukowych. Wielokryterialna metoda oceny pozwoliła
+  wyłonić pięć najlepszych materiałów: Kapton~HN (M1) i POSS-poliimid (M2) jako
+  folie powierzchniowe LEO, Kevlar-29/49 (M7) do zastosowań strukturalnych
+  i tarcz Whipple'a, kompozyt węglowo-fenolowy (M12) jako TPS wysokiego strumienia
+  ciepła oraz kompozyt polisiloksanowy (M6) jako wielofunkcyjny materiał
+  ablacyjno-strukturalny.
+  \par\vspace{4pt}
+  \noindent\textbf{Słowa kluczowe:}
+  kompozyty organiczne, Kapton, Kevlar, materiały ablacyjne, niska orbita
+  okołoziemska, poliimid, statek kosmiczny, system ochrony termicznej,
+  tlen atomowy, włókna aramidowe
+\endgroup
+
+\end{document}
