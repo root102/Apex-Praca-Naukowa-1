@@ -78,7 +78,7 @@ MATS = {
     "M11": {"name": "Kevlar Composite (M11)",     "color": "#B7950B",
              "uts": 600,   "E": 40.00,  "rho": 1380, "k": 0.12,
              "Cp": 1300,   "t_min":  -55, "t_max": 180,  "Kic": None},
-    "M12": {"name": "CF/Phenolic Compos. (M3b)",  "color": "#6E2F1A",
+    "M12": {"name": "CF/Phenolic Compos. (M12)",  "color": "#6E2F1A",
              "uts": 350,   "E": 35.00,  "rho": 1550, "k": 2.00,
              "Cp": 1400,   "t_min":  -55, "t_max": 2000, "Kic": 15.0},
     "M13": {"name": "CF/Polysilox. Compos. (M13)", "color": "#6C3483",
@@ -424,7 +424,7 @@ COMP_LABELS = [
     "Kevlar-49 (M7)",
     "Mylar BoPET (M8)", "UHMWPE (M9)",
     "UHMWPE Lam. (M10)", "Kevlar/Epoxy (M11)",
-    "CF/Phenolic Comp. (M3b)", "CF/Polysilox. Comp. (M13)"
+    "CF/Phenolic Comp. (M12)", "CF/Polysilox. Comp. (M13)"
 ]
 COMP_COLORS = [MATS[k]["color"] for k in COMP_KEYS]
 COMP_UTS    = [MATS[k]["uts"]   for k in COMP_KEYS]
@@ -477,7 +477,7 @@ RANGE_KEYS = ["M1","M2","M3","M4","M5","M6","M7a",
 RANGE_LBLS = ["Kapton (M1)","POSS-PI (M2)","Ph-F Resin (M3a)","Phthalonitrile (M4)",
               "RTV Silicone (M5)","SiO2f/SiO2 Comp. (M6)","Kevlar (M7)",
               "Mylar BoPET (M8)","UHMWPE (M9)","UHMWPE Lam. (M10)",
-              "Kevlar/Epoxy (M11)","CF/Phenolic Comp. (M3b)","CF/Polysilox. Comp. (M13)"]
+              "Kevlar/Epoxy (M11)","CF/Phenolic Comp. (M12)","CF/Polysilox. Comp. (M13)"]
 RANGE_COLS = [MATS[k]["color"] for k in RANGE_KEYS]
 T_MINS = [MATS[k]["t_min"] for k in RANGE_KEYS]
 T_MAXS = [MATS[k]["t_max"] for k in RANGE_KEYS]
@@ -510,7 +510,7 @@ savefig(fig, "compare_E_spec_strength.png")
 
 # ── compare_F: Radar Chart — Top-5 ─────────────────────────────
 TOP5_KEYS  = ["M1", "M7a", "M12", "M6", "M2"]
-TOP5_NAMES = ["Kapton\n(M1)", "Kevlar-29\n(M7)", "CF/Phenolic\nCompos. (M3b)",
+TOP5_NAMES = ["Kapton\n(M1)", "Kevlar-29\n(M7)", "CF/Phenolic\nCompos. (M12)",
               "SiO2f/SiO2\nCompos. (M6)", "POSS-Polyimide\n(M2)"]
 RAW = np.array([
     # sp_str  E_norm  T_max  AO_res  T_range
@@ -594,7 +594,7 @@ def plot_G_table():
         ("M9",  "UHMWPE"),
         ("M10", "UHMWPE Lam."),
         ("M11", "Kevlar/Epoxy Comp."),
-        ("M12", "CF/Phenolic Compos. (M3b)"),
+        ("M12", "CF/Phenolic Compos. (M12)"),
         ("M13", "CF/Polysilox. Compos."),
     ]
     data_rows = [
