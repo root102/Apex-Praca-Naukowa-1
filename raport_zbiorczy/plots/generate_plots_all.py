@@ -57,7 +57,7 @@ MATS = {
     "M5":  {"name": "RTV Silicone (M5)",           "color": "#E67E22",
              "uts": 6,     "E": 0.003,  "rho": 1175, "k": 0.25,
              "Cp": 1400,   "t_min": -115, "t_max": 300,  "Kic": None},
-    "M6":  {"name": "Polysiloxane Compos. (M6)",  "color": "#8E44AD",
+    "M6":  {"name": "SiO2f/SiO2 Compos. (M6)", "color": "#8E44AD",
              "uts": 182,   "E": 45.50,  "rho": 1320, "k": 0.21,
              "Cp": 1400,   "t_min":  -60, "t_max": 1400, "Kic": 2.52},
     "M7a": {"name": "Kevlar-29 (M7)",             "color": "#F1C40F",
@@ -81,7 +81,7 @@ MATS = {
     "M12": {"name": "Phenolic Composite (M12)",   "color": "#6E2F1A",
              "uts": 350,   "E": 35.00,  "rho": 1550, "k": 2.00,
              "Cp": 1400,   "t_min":  -55, "t_max": 2000, "Kic": 15.0},
-    "M13": {"name": "Polysil. Compos. II (M13)",  "color": "#6C3483",
+    "M13": {"name": "CF/Polysilox. Compos. (M13)", "color": "#6C3483",
              "uts": 150,   "E": 25.00,  "rho": 1450, "k": 0.50,
              "Cp": 1300,   "t_min":  -60, "t_max": 1200, "Kic": 2.0},
 }
@@ -420,11 +420,11 @@ COMP_KEYS = ["M1","M2","M3","M4","M5","M6","M7a","M7b",
              "M8","M9","M10","M11","M12","M13"]
 COMP_LABELS = [
     "Kapton", "POSS-PI", "Phenolic Resin", "Phthalonitrile",
-    "RTV Silicone", "Polysil. Compos.",
+    "RTV Silicone", "SiO2f/SiO2 Compos.",
     "Kevlar-29", "Kevlar-49",
     "Mylar BoPET", "UHMWPE",
     "PE Composite", "Kevlar Composite",
-    "Phenolic Compos.", "Polysil. Compos. II"
+    "Phenolic Compos.", "CF/Polysilox. Compos."
 ]
 COMP_COLORS = [MATS[k]["color"] for k in COMP_KEYS]
 COMP_UTS    = [MATS[k]["uts"]   for k in COMP_KEYS]
@@ -475,9 +475,9 @@ savefig(fig, "compare_C_density.png")
 RANGE_KEYS = ["M1","M2","M3","M4","M5","M6","M7a",
               "M8","M9","M10","M11","M12","M13"]
 RANGE_LBLS = ["Kapton","POSS-PI","Phenolic Resin","Phthalonitrile",
-              "RTV Silicone","Polysil. Compos.","Kevlar",
+              "RTV Silicone","SiO2f/SiO2 Compos.","Kevlar",
               "Mylar BoPET","UHMWPE","PE Composite",
-              "Kevlar Composite","Phenolic Compos.","Polysil. Compos. II"]
+              "Kevlar Composite","Phenolic Compos.","CF/Polysilox. Compos."]
 RANGE_COLS = [MATS[k]["color"] for k in RANGE_KEYS]
 T_MINS = [MATS[k]["t_min"] for k in RANGE_KEYS]
 T_MAXS = [MATS[k]["t_max"] for k in RANGE_KEYS]
@@ -511,7 +511,7 @@ savefig(fig, "compare_E_spec_strength.png")
 # ── compare_F: Radar Chart — Top-5 ─────────────────────────────
 TOP5_KEYS  = ["M1", "M7a", "M12", "M6", "M2"]
 TOP5_NAMES = ["Kapton\n(M1)", "Kevlar-29\n(M7)", "Phenolic Compos.\n(M12)",
-              "Polysil. Compos.\n(M6)", "POSS-Polyimide\n(M2)"]
+              "SiO2f/SiO2\nCompos. (M6)", "POSS-Polyimide\n(M2)"]
 RAW = np.array([
     # sp_str  E_norm  T_max  AO_res  T_range
     [231/1420, 2.5,  400,   0.6,  669 ],
@@ -561,7 +561,7 @@ def plot_G_table():
         ("M3",  "Phenolic Resin"),
         ("M4",  "Phthalonitrile"),
         ("M5",  "RTV Silicone"),
-        ("M6",  "Polysil. Composite"),
+        ("M6",  "SiO2f/SiO2 Compos."),
         ("M7a", "Kevlar-29"),
         ("M7b", "Kevlar-49"),
         ("M8",  "Mylar BoPET"),
@@ -569,7 +569,7 @@ def plot_G_table():
         ("M10", "PE Composite"),
         ("M11", "Kevlar Composite"),
         ("M12", "Phenolic Composite"),
-        ("M13", "Polysil. Compos. II"),
+        ("M13", "CF/Polysilox. Compos."),
     ]
     data_rows = [
         ["231",   "2.50",  "1 420", "−269", "400",    "0.12", "3.5"],
