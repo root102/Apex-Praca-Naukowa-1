@@ -416,12 +416,12 @@ plot_M7_D()
 # 8.  COMPARISON PLOTS
 # ════════════════════════════════════════════════════════════════
 
-COMP_KEYS = ["M1","M2","M3","M4","M5","M6","M7b",
+COMP_KEYS = ["M1","M2","M3","M4","M5","M6","M7a","M7b",
              "M8","M9","M10","M11","M12","M13"]
 COMP_LABELS = [
     "Kapton (M1)", "POSS-PI (M2)", "Ph-F Resin (M3a)", "Phthalonitrile (M4)",
     "RTV Silicone (M5)", "SiO2f/SiO2 Comp. (M6)",
-    "Kevlar-49 (M7)",
+    "Kevlar-29 (M7a)", "Kevlar-49 (M7b)",
     "Mylar BoPET (M8)", "UHMWPE (M9)",
     "UHMWPE Lam. (M10)", "Kevlar/Epoxy (M11)",
     "CF/Phenolic Comp. (M12)", "CF/Polysilox. Comp. (M13)"
