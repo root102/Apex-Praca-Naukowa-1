@@ -23,6 +23,7 @@
 \usepackage{xcolor}
 \usepackage[english]{babel}
 \usepackage{url}
+\usepackage{longtable}
 
 % ── fonts ────────────────────────────────────────────────────
 \setmainfont{Times New Roman}
@@ -597,6 +598,175 @@ launch ascent and on-orbit operation. The principal findings are:
     ($\leq$\,135\,°C) — incompatible with launch aerodynamic heating — and by AO
     susceptibility on orbit.
 \end{enumerate}
+
+% ────────────────────────────────────────────────────────────
+%  APPENDIX — FULL PROPERTY DATA TABLE
+% ────────────────────────────────────────────────────────────
+\specialsection{Appendix: Complete Property Data with Sources}
+
+{\fontsize{8}{9.5}\selectfont
+\setlength{\LTpre}{4pt}
+\setlength{\LTpost}{4pt}
+\begin{longtable}{@{} p{2.5cm} p{2.7cm} p{1.6cm} p{1.0cm} p{5.0cm} @{}}
+\caption{\textit{Complete room-temperature (23\,°C) mechanical and thermal
+  properties of M1--M13 with primary source and page reference.
+  Asterisk (*) on T\textsubscript{max} denotes effective ablative
+  service temperature, not continuous structural limit.
+  ``est.'' = value estimated from related data in cited source.}}
+\label{tab:fulldata} \\
+\toprule
+\textbf{Material} & \textbf{Property} & \textbf{Value} & \textbf{Unit}
+  & \textbf{Source} \\
+\midrule
+\endfirsthead
+\multicolumn{5}{l}{\footnotesize\itshape (Table~\ref{tab:fulldata} continued)} \\
+\toprule
+\textbf{Material} & \textbf{Property} & \textbf{Value} & \textbf{Unit}
+  & \textbf{Source} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{5}{r}{\footnotesize\itshape Continued on next page\ldots} \\
+\endfoot
+\bottomrule
+\endlastfoot
+
+%% ── M1 Kapton ───────────────────────────────────────────────
+\multirow{6}{2.5cm}{\textbf{M1}\\Kapton HN\\(DuPont)}
+  & UTS              & 231        & MPa        & DuPont (2023), datasheet p.~1 \\
+  & Young's mod.\ $E$& 2.5        & GPa        & DuPont (2023), datasheet p.~1 \\
+  & Density $\rho$   & 1\,420     & kg/m$^3$   & DuPont (2023), datasheet p.~1 \\
+  & Therm.\ cond.\ $k$ & 0.12     & W/m$\cdot$K & DuPont (2023), datasheet p.~2 \\
+  & T range          & $-$269\,/\,$+$400 & °C  & DuPont (2023), datasheet p.~1 \\
+  & $K_\mathrm{IC}$  & 1.65--5.4  & MPa$\sqrt{\text{m}}$ & DuPont (2023), datasheet p.~2 \\
+\midrule
+
+%% ── M2 POSS-PI ──────────────────────────────────────────────
+\multirow{6}{2.5cm}{\textbf{M2}\\POSS-Poly\-imide}
+  & UTS              & 210        & MPa        & Brunsvold et al.\ (2004), p.~303 \\
+  & Young's mod.\ $E$& 2.3        & GPa        & Brunsvold et al.\ (2004), p.~303 \\
+  & Density $\rho$   & 1\,450     & kg/m$^3$   & Brunsvold et al.\ (2004), p.~303 \\
+  & Therm.\ cond.\ $k$ & 0.15     & W/m$\cdot$K & Gouzman et al.\ (2010), p.~2440 \\
+  & T range          & $-$269\,/\,$+$450 & °C  & Gouzman et al.\ (2010), p.~2439 \\
+  & $K_\mathrm{IC}$  & $\approx$2.0 & MPa$\sqrt{\text{m}}$ & Gouzman et al.\ (2010), p.~2440 (est.) \\
+\midrule
+
+%% ── M3a Ph-F Resin ──────────────────────────────────────────
+\multirow{6}{2.5cm}{\textbf{M3a}\\Ph-F Resin\\(SC-1008)}
+  & UTS              & 45         & MPa        & AZoM ID:475 \\
+  & Young's mod.\ $E$& 3.5        & GPa        & AZoM ID:475 \\
+  & Density $\rho$   & 1\,250     & kg/m$^3$   & AZoM ID:475 \\
+  & Therm.\ cond.\ $k$ & 0.30     & W/m$\cdot$K & AZoM ID:475 \\
+  & T range          & $-$55\,/\,$>$2000* & °C & Natali et al.\ (2012), p.~3 \\
+  & $K_\mathrm{IC}$  & 0.7        & MPa$\sqrt{\text{m}}$ & AZoM ID:475 \\
+\midrule
+
+%% ── M4 Phthalonitrile ───────────────────────────────────────
+\multirow{6}{2.5cm}{\textbf{M4}\\Phthalo-nitrile Resin}
+  & UTS              & 65         & MPa        & Hergenrother et al.\ (2005), p.~7853 \\
+  & Young's mod.\ $E$& 4.0        & GPa        & Hergenrother et al.\ (2005), p.~7853 \\
+  & Density $\rho$   & 1\,250     & kg/m$^3$   & Hergenrother et al.\ (2005), p.~7853 \\
+  & Therm.\ cond.\ $k$ & 0.20     & W/m$\cdot$K & Hergenrother et al.\ (2005), p.~7853 \\
+  & T range          & $-$55\,/\,$+$375  & °C  & Hergenrother et al.\ (2005), p.~7851 \\
+  & $K_\mathrm{IC}$  & 1.0        & MPa$\sqrt{\text{m}}$ & Laskoski et al.\ (2006), p.~4559 \\
+\midrule
+
+%% ── M5 RTV Silicone ─────────────────────────────────────────
+\multirow{5}{2.5cm}{\textbf{M5}\\RTV Silicone\\(Momentive RTV566)}
+  & UTS              & 6          & MPa        & AZoM ID:920; MatWeb RTV566 \\
+  & Young's mod.\ $E$& 0.003      & GPa        & AZoM ID:920 \\
+  & Density $\rho$   & 1\,175     & kg/m$^3$   & AZoM ID:920; MatWeb RTV566 \\
+  & Therm.\ cond.\ $k$ & 0.25     & W/m$\cdot$K & AZoM ID:920 \\
+  & T range          & $-$115\,/\,$+$300 & °C  & Barucci et al.\ (1998), p.~3 \\
+\midrule
+
+%% ── M6 SiO2f/SiO2 ───────────────────────────────────────────
+\multirow{6}{2.5cm}{\textbf{M6}\\SiO$_2$f/SiO$_2$\\Polysilox.}
+  & UTS              & 182        & MPa        & McDermott et al.\ (2022), p.~3207 \\
+  & Young's mod.\ $E$& 45.5       & GPa        & Hou et al.\ (Techneglas, 2021) \\
+  & Density $\rho$   & 1\,320     & kg/m$^3$   & McDermott et al.\ (2022), p.~3204 \\
+  & Therm.\ cond.\ $k$ & 0.21     & W/m$\cdot$K & McDermott et al.\ (2022), p.~3210 \\
+  & T range          & $-$60\,/\,$+$1400* & °C & Hou et al.\ (Techneglas, 2021) \\
+  & $K_\mathrm{IC}$  & 2.52       & MPa$\sqrt{\text{m}}$ & PMC11945185 (2025) \\
+\midrule
+
+%% ── M7a Kevlar-29 ───────────────────────────────────────────
+\multirow{5}{2.5cm}{\textbf{M7a}\\Kevlar-29\\(DuPont)}
+  & UTS              & 3\,600     & MPa        & DuPont (2017), Tech.\ Guide p.~5 \\
+  & Young's mod.\ $E$& 70.5       & GPa        & DuPont (2017), Tech.\ Guide p.~5 \\
+  & Density $\rho$   & 1\,440     & kg/m$^3$   & DuPont (2017), Tech.\ Guide p.~4 \\
+  & Therm.\ cond.\ $k$ & 0.04     & W/m$\cdot$K & Ventura \& Martelli (2009), p.~735 \\
+  & T range          & $-$196\,/\,$+$430 & °C  & DuPont (2017), Tech.\ Guide p.~6 \\
+\midrule
+
+%% ── M7b Kevlar-49 ───────────────────────────────────────────
+\multirow{5}{2.5cm}{\textbf{M7b}\\Kevlar-49\\(DuPont)}
+  & UTS              & 3\,800     & MPa        & DuPont (2017), Tech.\ Guide p.~5 \\
+  & Young's mod.\ $E$& 125        & GPa        & DuPont (2017), Tech.\ Guide p.~5 \\
+  & Density $\rho$   & 1\,440     & kg/m$^3$   & DuPont (2017), Tech.\ Guide p.~4 \\
+  & Therm.\ cond.\ $k$ & 0.04     & W/m$\cdot$K & Ventura \& Martelli (2009), p.~735 \\
+  & T range          & $-$196\,/\,$+$430 & °C  & DuPont (2017), Tech.\ Guide p.~6 \\
+\midrule
+
+%% ── M8 Mylar BoPET ──────────────────────────────────────────
+\multirow{6}{2.5cm}{\textbf{M8}\\Mylar BoPET\\(DuPont Teijin)}
+  & UTS              & 200        & MPa        & DuPont Teijin (2021), datasheet p.~1 \\
+  & Young's mod.\ $E$& 3.95       & GPa        & DuPont Teijin (2021), datasheet p.~1 \\
+  & Density $\rho$   & 1\,395     & kg/m$^3$   & DuPont Teijin (2021), datasheet p.~1 \\
+  & Therm.\ cond.\ $k$ & 0.15     & W/m$\cdot$K & DuPont Teijin (2021), datasheet p.~2 \\
+  & T range          & $-$70\,/\,$+$150  & °C  & DuPont Teijin (2021), datasheet p.~2 \\
+  & $K_\mathrm{IC}$  & $\approx$3.5 & MPa$\sqrt{\text{m}}$ & AZoM ID:2047 (est.) \\
+\midrule
+
+%% ── M9 UHMWPE ───────────────────────────────────────────────
+\multirow{6}{2.5cm}{\textbf{M9}\\UHMWPE\\(bulk)}
+  & UTS              & 200        & MPa        & Kurtz (2009), ch.~2, p.~23 \\
+  & Young's mod.\ $E$& 0.9        & GPa        & Sobieraj \& Rimnac (2009), p.~433 \\
+  & Density $\rho$   & 940        & kg/m$^3$   & AZoM ID:1831 \\
+  & Therm.\ cond.\ $k$ & 0.44     & W/m$\cdot$K & AZoM ID:1831 \\
+  & T range          & $-$150\,/\,$+$80  & °C  & Kurtz (2009), ch.~2, p.~23 \\
+  & $K_\mathrm{IC}$  & $\approx$2.0 & MPa$\sqrt{\text{m}}$ & Sobieraj \& Rimnac (2009), p.~433 \\
+\midrule
+
+%% ── M10 UHMWPE Laminate ─────────────────────────────────────
+\multirow{5}{2.5cm}{\textbf{M10}\\UHMWPE Lam.\\(Dyneema SK75)}
+  & UTS              & 400        & MPa        & Koh et al.\ (2010), p.~2234 \\
+  & Young's mod.\ $E$& 30         & GPa        & Koh et al.\ (2010), p.~2236 \\
+  & Density $\rho$   & 1\,000     & kg/m$^3$   & DSM Dyneema UD datasheet \\
+  & Therm.\ cond.\ $k$ & 0.35     & W/m$\cdot$K & AZoM ID:1831 (est., composite rule) \\
+  & T range          & $-$150\,/\,$+$120 & °C  & DSM Dyneema UD datasheet \\
+\midrule
+
+%% ── M11 Kevlar/Epoxy ────────────────────────────────────────
+\multirow{5}{2.5cm}{\textbf{M11}\\Kevlar/Epoxy\\(Hexcel 8552)}
+  & UTS              & 600        & MPa        & Duan et al.\ (2006), p.~441 \\
+  & Young's mod.\ $E$& 40         & GPa        & DuPont Kevlar Design Guide \\
+  & Density $\rho$   & 1\,380     & kg/m$^3$   & DuPont Kevlar Design Guide \\
+  & Therm.\ cond.\ $k$ & 0.12     & W/m$\cdot$K & DuPont (2017), Tech.\ Guide p.~8 \\
+  & T range          & $-$55\,/\,$+$180  & °C  & Hexcel 8552 epoxy datasheet \\
+\midrule
+
+%% ── M12 CF/Phenolic ─────────────────────────────────────────
+\multirow{6}{2.5cm}{\textbf{M12}\\CF/Phenolic\\Composite}
+  & UTS              & 350        & MPa        & Natali et al.\ (2012), p.~5 \\
+  & Young's mod.\ $E$& 35         & GPa        & Natali et al.\ (2012), p.~5 \\
+  & Density $\rho$   & 1\,550     & kg/m$^3$   & Natali et al.\ (2012), p.~5 \\
+  & Therm.\ cond.\ $k$ & 2.0      & W/m$\cdot$K & Tran et al.\ (2014), p.~1418 \\
+  & T range          & $-$55\,/\,$>$2000* & °C & Natali et al.\ (2012), p.~5 \\
+  & $K_\mathrm{IC}$  & 15         & MPa$\sqrt{\text{m}}$ & Tran et al.\ (2014), p.~1418 \\
+\midrule
+
+%% ── M13 CF/Polysiloxane ─────────────────────────────────────
+\multirow{6}{2.5cm}{\textbf{M13}\\CF/Polysilox.\\Composite}
+  & UTS              & 150        & MPa        & McDermott et al.\ (2022), p.~3209 \\
+  & Young's mod.\ $E$& 25         & GPa        & McDermott et al.\ (2022), p.~3209 \\
+  & Density $\rho$   & 1\,450     & kg/m$^3$   & McDermott et al.\ (2022), p.~3204 \\
+  & Therm.\ cond.\ $k$ & 0.50     & W/m$\cdot$K & McDermott et al.\ (2022), p.~3210 \\
+  & T range          & $-$60\,/\,$+$1200* & °C & Hou et al.\ (Techneglas, 2021) \\
+  & $K_\mathrm{IC}$  & $\approx$2.0 & MPa$\sqrt{\text{m}}$ & PMC11945185 (2025) \\
+
+\end{longtable}
+}
 
 % ────────────────────────────────────────────────────────────
 %  REFERENCES
